@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">EU Quiz</string>
+    <string name="appLogoName">Welcome to EU Quiz</string>
+    <string name="nameHint">Enter your name here</string>
+    <string name="questionNumber">Question 1</string>
+    <string name="question">When was the European Union created?</string>
+
+    <string name="next">Next</string>
+
+    <string name="answer0">In 1941</string>
+    <string name="answer1">In 2014</string>
+    <string name="answer2">In 2003</string>
+    <string name="answer3">In 1956</string>
+
+</resources>

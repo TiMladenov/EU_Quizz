@@ -3,12 +3,13 @@ package io.github.timladenov.euquizz;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    //Make the app to save data state on screen rotation
     public String playerNamesMain;
     public int answerIndex = 0;
     public int quizScore = 0;
@@ -16,20 +17,18 @@ public class MainActivity extends AppCompatActivity {
     public String chosenAnswer;
     private TextView questionNum;
     private TextView questionText;
-
-    //TO DO: Change to 0 and remove all precoded answer attributes from strings.xml to load from 0 element on start.
-    //TO DO: Create a method only on first start that will populate first question and answers, it will pick up with
-    //@param fillQuestionArray(); and @param fillAnswersAray(); from there to load next elements
     private RadioButton answers0;
     private RadioButton answers1;
     private RadioButton answers2;
     private RadioButton answers3;
     private ImageView backGround;
+    private Button nextView;
     private String[] questionArray;
     private String[] answersArray;
     private int questionNumber = 2;
-    private int questionIndex = 1;
-    private int genericIndex = 0;
+    private int questionIndex = 0;
+    private int checkIndex = 0;
+    private int imageIndex = 1;
     private int[] drawableArray = new int[10];
 
     @Override
@@ -48,10 +47,27 @@ public class MainActivity extends AppCompatActivity {
         answers2 = (RadioButton) findViewById(R.id.answers2);
         answers3 = (RadioButton) findViewById(R.id.answers3);
         backGround = (ImageView) findViewById(R.id.quesitonBackground);
+        nextView = (Button) findViewById(R.id.nextView);
 
         fillQuestionArray();
         fillAnswersAray();
         fillDrawableArray();
+
+        String question = "Question ";
+        question += Integer.toString(questionNumber - 1);
+        questionNum.setText(question);
+        questionText.setText(questionArray[questionIndex]);
+        answers0.setText(answersArray[0]);
+        answers1.setText(answersArray[1]);
+        answers2.setText(answersArray[2]);
+        answers3.setText(answersArray[3]);
+        backGround.setImageResource(drawableArray[imageIndex - 1]);
+        if (questionIndex == 0) {
+            questionIndex++;
+        }
+
+        nextView();
+        selectedView();
 
         if (answerIndex == 0) {
             answers0.setText(answersArray[answerIndex]);
@@ -66,8 +82,102 @@ public class MainActivity extends AppCompatActivity {
         playerNamesMain = getIntent().getExtras().getString("playerNames");
     }
 
-    public void selectAnswer(View view) {
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString("playerNamesMain", playerNamesMain);
+        savedInstanceState.putInt("answerIndex", answerIndex);
+        savedInstanceState.putInt("quizScore", quizScore);
+        savedInstanceState.putString("chosenAnswer", chosenAnswer);
+        savedInstanceState.putInt("questionNumber", questionNumber);
+        savedInstanceState.putInt("questionIndex", questionIndex);
+        savedInstanceState.putInt("checkIndex", checkIndex);
+        savedInstanceState.putInt("imageIndex", imageIndex);
+        super.onSaveInstanceState(savedInstanceState);
+    }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        playerNamesMain = savedInstanceState.getString("playerNamesMain");
+        answerIndex = savedInstanceState.getInt("answerIndex");
+        quizScore = savedInstanceState.getInt("quizScore");
+        chosenAnswer = savedInstanceState.getString("chosenAnswer");
+        questionNumber = savedInstanceState.getInt("questionNumber");
+        questionIndex = savedInstanceState.getInt("questionIndex");
+        checkIndex = savedInstanceState.getInt("checkIndex");
+        imageIndex = savedInstanceState.getInt("imageIndex");
+        setScreen();
+    }
+
+    public void setScreen() {
+
+        questionNum = (TextView) findViewById(R.id.questionNumber);
+        questionText = (TextView) findViewById(R.id.question);
+        answers0 = (RadioButton) findViewById(R.id.answers0);
+        answers1 = (RadioButton) findViewById(R.id.answers1);
+        answers2 = (RadioButton) findViewById(R.id.answers2);
+        answers3 = (RadioButton) findViewById(R.id.answers3);
+        backGround = (ImageView) findViewById(R.id.quesitonBackground);
+        nextView = (Button) findViewById(R.id.nextView);
+
+        if (questionNumber > 2) {
+            String question = "Question ";
+            question += Integer.toString(questionNumber - 1);
+            questionNum.setText(question);
+            questionText.setText(questionArray[questionIndex - 1]);
+            answers0.setText(answersArray[answerIndex - 4]);
+            answers1.setText(answersArray[answerIndex - 3]);
+            answers2.setText(answersArray[answerIndex - 2]);
+            answers3.setText(answersArray[answerIndex - 1]);
+            backGround.setImageResource(drawableArray[imageIndex - 1]);
+        }
+    }
+
+    public void nextView() {
+        nextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String tmpQuestionNumber = "Question ";
+
+                if (questionNumber <= 10) {
+
+                    if (chosenAnswer == correctAnswers[checkIndex]) {
+                        quizScore += 10;
+                    }
+
+                    tmpQuestionNumber += questionNumber;
+                    questionNum.setText(tmpQuestionNumber);
+                    questionNumber++;
+
+                    backGround.setImageResource(drawableArray[imageIndex]);
+                    imageIndex++;
+
+                    questionText.setText(questionArray[questionIndex]);
+                    questionIndex++;
+                    checkIndex++;
+
+                    Toast msg = Toast.makeText(getApplicationContext(), (questionNumber - 2) + " out of 10 questions answered.\n", Toast.LENGTH_SHORT);
+                    msg.show();
+
+                    answers0.setText(answersArray[answerIndex]);
+                    answerIndex++;
+                    answers1.setText(answersArray[answerIndex]);
+                    answerIndex++;
+                    answers2.setText(answersArray[answerIndex]);
+                    answerIndex++;
+                    answers3.setText(answersArray[answerIndex]);
+                    answerIndex++;
+
+                    answers0.setChecked(false);
+                    answers1.setChecked(false);
+                    answers2.setChecked(false);
+                    answers3.setChecked(false);
+                }
+            }
+        });
+    }
+
+    public void selectedView() {
         answers0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,123 +231,87 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void changeViewNext(View view) {
-
-        String tmpQuestionNumber = "Question ";
-
-        if (questionNumber <= 10) {
-
-            if (chosenAnswer == correctAnswers[genericIndex]) {
-                quizScore += 10;
-            }
-
-            tmpQuestionNumber += questionNumber;
-            questionNum.setText(tmpQuestionNumber);
-            questionNumber++;
-
-            backGround.setImageResource(drawableArray[genericIndex]);
-            genericIndex++;
-
-            questionText.setText(questionArray[questionIndex]);
-            questionIndex++;
-
-            answers0.setText(answersArray[answerIndex]);
-            answerIndex++;
-            answers1.setText(answersArray[answerIndex]);
-            answerIndex++;
-            answers2.setText(answersArray[answerIndex]);
-            answerIndex++;
-            answers3.setText(answersArray[answerIndex]);
-            answerIndex++;
-
-            answers0.setChecked(false);
-            answers1.setChecked(false);
-            answers2.setChecked(false);
-            answers3.setChecked(false);
-        }
-    }
-
     public void fillQuestionArray() {
-        questionArray[0] = "When was the European Union created?";
-        questionArray[1] = "How many members did the Union count when the Euro began circulation in January 2000?";
-        questionArray[2] = "How many countries were members of the Eurozone when Euro coins and banknotes were first circulated on 1st January 2002?";
-        questionArray[3] = "What was the former name of the currency for Europe, now known as the Euro?";
-        questionArray[4] = "How many stars are there on the European Flag?";
-        questionArray[5] = "Who was not a president of the European Commission?";
-        questionArray[6] = "Which of these is not part of the European Union?";
-        questionArray[7] = "The Presidency of the European Union is rotated every _ months?";
-        questionArray[8] = "Who is regarded as the 'chief architect' of European Unity?";
-        questionArray[9] = "When you cross the border from Germany to the Netherlands without showing your passport you do so due to:";
+        questionArray[0] = getString(R.string.question0);
+        questionArray[1] = getString(R.string.question1);
+        questionArray[2] = getString(R.string.question2);
+        questionArray[3] = getString(R.string.question3);
+        questionArray[4] = getString(R.string.question4);
+        questionArray[5] = getString(R.string.question5);
+        questionArray[6] = getString(R.string.question6);
+        questionArray[7] = getString(R.string.question7);
+        questionArray[8] = getString(R.string.question8);
+        questionArray[9] = getString(R.string.question9);
     }
 
     public void fillAnswersAray() {
-        answersArray[0] = "In 1993"; // correct
-        answersArray[1] = "In 2014";
-        answersArray[2] = "In 2003";
-        answersArray[3] = "In 1956";
+        answersArray[0] = getString(R.string.answerString0); // correct
+        answersArray[1] = getString(R.string.answerString1);
+        answersArray[2] = getString(R.string.answerString2);
+        answersArray[3] = getString(R.string.answerString3);
 
         correctAnswers[0] = answersArray[0];
 
-        answersArray[4] = "18";
-        answersArray[5] = "15"; // correct
-        answersArray[6] = "12";
-        answersArray[7] = "10";
+        answersArray[4] = getString(R.string.answerString4);
+        answersArray[5] = getString(R.string.answerString5); // correct
+        answersArray[6] = getString(R.string.answerString6);
+        answersArray[7] = getString(R.string.answerString7);
 
         correctAnswers[1] = answersArray[5];
 
-        answersArray[8] = "9";
-        answersArray[9] = "18";
-        answersArray[10] = "12"; // correct
-        answersArray[11] = "10";
+        answersArray[8] = getString(R.string.answerString8);
+        answersArray[9] = getString(R.string.answerString9);
+        answersArray[10] = getString(R.string.answerString10); // correct
+        answersArray[11] = getString(R.string.answerString11);
 
         correctAnswers[2] = answersArray[10];
 
-        answersArray[12] = "E-Mark";
-        answersArray[13] = "ECU"; // correct
-        answersArray[14] = "Sterling";
-        answersArray[15] = "Pound";
+        answersArray[12] = getString(R.string.answerString12);
+        answersArray[13] = getString(R.string.answerString13); // correct
+        answersArray[14] = getString(R.string.answerString14);
+        answersArray[15] = getString(R.string.answerString15);
 
         correctAnswers[3] = answersArray[13];
 
-        answersArray[16] = "9";
-        answersArray[17] = "15";
-        answersArray[18] = "12"; // correct
-        answersArray[19] = "10";
+        answersArray[16] = getString(R.string.answerString16);
+        answersArray[17] = getString(R.string.answerString17);
+        answersArray[18] = getString(R.string.answerString18); // correct
+        answersArray[19] = getString(R.string.answerString19);
 
         correctAnswers[4] = answersArray[18];
 
-        answersArray[20] = "Santer";
-        answersArray[21] = "Prodi";
-        answersArray[22] = "Dehaene"; // correct
-        answersArray[23] = "Junker";
+        answersArray[20] = getString(R.string.answerString20);
+        answersArray[21] = getString(R.string.answerString21);
+        answersArray[22] = getString(R.string.answerString22); // correct
+        answersArray[23] = getString(R.string.answerString23);
 
         correctAnswers[5] = answersArray[22];
 
-        answersArray[24] = "The European Council";
-        answersArray[25] = "The Council of Europe"; // correct
-        answersArray[26] = "The Council";
-        answersArray[27] = "The European Commission";
+        answersArray[24] = getString(R.string.answerString24);
+        answersArray[25] = getString(R.string.answerString25); // correct
+        answersArray[26] = getString(R.string.answerString26);
+        answersArray[27] = getString(R.string.answerString27);
 
         correctAnswers[6] = answersArray[25];
 
-        answersArray[28] = "2y, 6m"; // correct
-        answersArray[29] = "0y, 12m";
-        answersArray[30] = "4y, 0m";
-        answersArray[31] = "5y, 0m";
+        answersArray[28] = getString(R.string.answerString28); // correct
+        answersArray[29] = getString(R.string.answerString29);
+        answersArray[30] = getString(R.string.answerString30);
+        answersArray[31] = getString(R.string.answerString31);
 
         correctAnswers[7] = answersArray[28];
 
-        answersArray[32] = "Robert Schuman";
-        answersArray[33] = "Jean Monnet"; // correct
-        answersArray[34] = "Winston Churchill";
-        answersArray[35] = "Schuman Robert";
+        answersArray[32] = getString(R.string.answerString32);
+        answersArray[33] = getString(R.string.answerString33); // correct
+        answersArray[34] = getString(R.string.answerString34);
+        answersArray[35] = getString(R.string.answerString35);
 
         correctAnswers[8] = answersArray[33];
 
-        answersArray[36] = "The Maastricht Treaty";
-        answersArray[37] = "The Schengen Agreement"; // correct
-        answersArray[38] = "The Brussels Agreement";
-        answersArray[39] = "The Treaty of Rome";
+        answersArray[36] = getString(R.string.answerString36);
+        answersArray[37] = getString(R.string.answerString37); // correct
+        answersArray[38] = getString(R.string.answerString38);
+        answersArray[39] = getString(R.string.answerString39);
 
         correctAnswers[9] = answersArray[37];
 

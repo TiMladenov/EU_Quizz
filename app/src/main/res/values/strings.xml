@@ -2,8 +2,8 @@
     <string name="app_name">EU Quiz</string>
     <string name="appLogoName">Welcome to EU Quiz</string>
     <string name="nameHint">Enter your name here</string>
-    <string name="questionNumber">Question 1</string>
-    <string name="question">When was the European Union created?</string>
+    <string name="questionNumber">""</string>
+    <string name="question">""</string>
 
     <string name="next">Next</string>
 
@@ -12,4 +12,64 @@
     <string name="answer2">""</string>
     <string name="answer3">""</string>
 
+    <string name="question0">When was the European Union created?</string>
+    <string name="question1">How many members did the Union count when the Euro began circulation in January 2000?</string>
+    <string name="question2">How many countries were members of the Eurozone when Euro coins and banknotes were first circulated on 1st January 2002?</string>
+    <string name="question3">What was the former name of the currency for Europe, now known as the Euro?</string>
+    <string name="question4">How many stars are there on the European Flag?</string>
+    <string name="question5">Who was not a president of the European Commission?</string>
+    <string name="question6">Which of these is not part of the European Union?</string>
+    <string name="question7">The Presidency of the European Union is rotated every _ months?</string>
+    <string name="question8">Who is regarded as the \'chief architect\' of European Unity?</string>
+    <string name="question9">When you cross the border from Germany to the Netherlands without showing your passport you do so due to:</string>
+
+    <string name="answerString0">In 1993</string>
+    <string name="answerString1">In 2014</string>
+    <string name="answerString2">In 2003</string>
+    <string name="answerString3">In 1956</string>
+
+    <string name="answerString4">18</string>
+    <string name="answerString5">15</string>
+    <string name="answerString6">12</string>
+    <string name="answerString7">10</string>
+
+    <string name="answerString8">9</string>
+    <string name="answerString9">18</string>
+    <string name="answerString10">12</string>
+    <string name="answerString11">10</string>
+
+    <string name="answerString12">E-Mark</string>
+    <string name="answerString13">ECU</string>
+    <string name="answerString14">Sterling</string>
+    <string name="answerString15">Pound</string>
+
+    <string name="answerString16">9</string>
+    <string name="answerString17">15</string>
+    <string name="answerString18">12</string>
+    <string name="answerString19">10</string>
+
+    <string name="answerString20">Santer</string>
+    <string name="answerString21">Prodi</string>
+    <string name="answerString22">Dehaene</string>
+    <string name="answerString23">Junker</string>
+
+    <string name="answerString24">The European Council</string>
+    <string name="answerString25">The Council of Europe</string>
+    <string name="answerString26">The Council</string>
+    <string name="answerString27">The European Commission</string>
+
+    <string name="answerString28">2y, 6m</string>
+    <string name="answerString29">0y, 12m</string>
+    <string name="answerString30">4y, 0m</string>
+    <string name="answerString31">5y, 0m</string>
+
+    <string name="answerString32">Robert Schuman</string>
+    <string name="answerString33">Jean Monnet</string>
+    <string name="answerString34">Winston Churchill</string>
+    <string name="answerString35">Schuman Robert</string>
+
+    <string name="answerString36">The Maastricht Treaty</string>
+    <string name="answerString37">The Schengen Agreement</string>
+    <string name="answerString38">The Brussels Agreement</string>
+    <string name="answerString39">The Treaty of Rome</string>
 </resources>

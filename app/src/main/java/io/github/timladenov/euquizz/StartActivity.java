@@ -91,7 +91,7 @@ public class StartActivity extends AppCompatActivity {
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
+        super.onRestoreInstanceState(savedInstanceState);
         sleePTime = savedInstanceState.getInt("sleepTime");
         playerNames = savedInstanceState.getString("playerNames");
     }

@@ -7,9 +7,9 @@
 
     <string name="next">Next</string>
 
-    <string name="answer0">In 1941</string>
-    <string name="answer1">In 2014</string>
-    <string name="answer2">In 2003</string>
-    <string name="answer3">In 1956</string>
+    <string name="answer0">""</string>
+    <string name="answer1">""</string>
+    <string name="answer2">""</string>
+    <string name="answer3">""</string>
 
 </resources>

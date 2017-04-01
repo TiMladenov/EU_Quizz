@@ -72,4 +72,13 @@
     <string name="answerString37">The Schengen Agreement</string>
     <string name="answerString38">The Brussels Agreement</string>
     <string name="answerString39">The Treaty of Rome</string>
+
+    <string name="resultHeader">Results</string>
+    <string name="showResult">""</string>
+    <string name="resultText0">"Great! You know all about the EU!"</string>
+    <string name="resultText1">"Congratulations! You know more than average about EU!"</string>
+    <string name="resultText2">"Good Job! You cover the avarage knowledge on EU!"</string>
+    <string name="resultText3">"You know just about average on EU."</string>
+    <string name="resultText4">"You need to study more. Come retake the test later."</string>
+    <string name="resultPoints">"You have x out of 100 points!\nThank you for your participation, "</string>
 </resources>

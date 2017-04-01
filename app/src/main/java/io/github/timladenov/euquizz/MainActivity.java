@@ -1,5 +1,6 @@
 package io.github.timladenov.euquizz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -172,6 +173,12 @@ public class MainActivity extends AppCompatActivity {
                     answers1.setChecked(false);
                     answers2.setChecked(false);
                     answers3.setChecked(false);
+                } else {
+                    Intent toResult = new Intent(getApplicationContext(), ResultActivity.class);
+                    toResult.putExtra("playerNamesMain", playerNamesMain);
+                    toResult.putExtra("quizScore", quizScore);
+                    startActivity(toResult);
+                    finish();
                 }
             }
         });

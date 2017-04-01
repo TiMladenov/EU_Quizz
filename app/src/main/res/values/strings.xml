@@ -80,5 +80,8 @@
     <string name="resultText2">"Good Job! You cover the avarage knowledge on EU!"</string>
     <string name="resultText3">"You know just about average on EU."</string>
     <string name="resultText4">"You need to study more. Come retake the test later."</string>
-    <string name="resultPoints">"You have x out of 100 points!\nThank you for your participation, "</string>
+    <string name="resultPoints">""</string>
+
+    <string name="buttonRetake">Retake</string>
+    <string name="buttonFinish">Close</string>
 </resources>

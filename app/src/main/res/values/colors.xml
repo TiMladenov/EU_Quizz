@@ -7,4 +7,6 @@
 
     <color name="interimColor">#666666</color>
     <color name="primaryTxtColor">#000000</color>
+
+    <color name="resultActivityColor">#00458e</color>
 </resources>

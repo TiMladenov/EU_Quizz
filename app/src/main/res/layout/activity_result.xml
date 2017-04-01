@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_result"
     android:layout_width="match_parent"
@@ -8,56 +8,98 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#62626262"
+    android:background="@color/resultActivityColor"
     android:orientation="vertical"
     tools:context="io.github.timladenov.euquizz.ResultActivity">
 
-    <TextView
-        android:id="@+id/resultsHeader"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/OdpHeight"
-        android:layout_weight="@dimen/weight"
-        android:alpha="@dimen/alpha"
-        android:background="@color/colorForeground"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="@string/resultHeader"
-        android:textAlignment="center"
-        android:textColor="@color/primaryTxtColor"
-        android:textSize="@dimen/capitalText"
-        android:textStyle="bold"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+    <ImageView
+        android:id="@+id/emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
-    <TextView
-        android:id="@+id/showRes"
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/textFields"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/OdpHeight"
-        android:layout_weight="@dimen/weight"
-        android:alpha="@dimen/alpha"
-        android:background="@color/colorForeground"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="@string/showResult"
-        android:textAlignment="center"
-        android:textColor="@color/primaryTxtColor"
-        android:textSize="@dimen/middleText"
-        android:textStyle="normal"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/resultWindow2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/OdpHeight"
-        android:layout_weight="@dimen/weight"
-        android:alpha="@dimen/alpha"
-        android:background="@color/colorForeground"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="@string/resultPoints"
-        android:textAlignment="center"
-        android:textColor="@color/primaryTxtColor"
-        android:textSize="@dimen/middleText"
-        android:textStyle="normal"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+        <TextView
+            android:id="@+id/resultsHeader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/OdpHeight"
+            android:layout_weight="@dimen/weight"
+            android:alpha="@dimen/alpha"
+            android:background="@color/colorForeground"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/resultHeader"
+            android:textAlignment="center"
+            android:textColor="@color/primaryTxtColor"
+            android:textSize="@dimen/capitalText"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/showRes"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/OdpHeight"
+            android:layout_weight="@dimen/weight"
+            android:alpha="@dimen/alpha"
+            android:background="@color/colorForeground"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/showResult"
+            android:textAlignment="center"
+            android:textColor="@color/primaryTxtColor"
+            android:textSize="@dimen/middleText"
+            android:textStyle="normal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:id="@+id/resultWindow2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/OdpHeight"
+            android:layout_weight="@dimen/weight"
+            android:alpha="@dimen/alpha"
+            android:background="@color/colorForeground"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/resultPoints"
+            android:textAlignment="center"
+            android:textColor="@color/primaryTxtColor"
+            android:textSize="@dimen/middleText"
+            android:textStyle="normal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/retake"
+                android:layout_width="@dimen/OdpHeight"
+                android:layout_height="wrap_content"
+                android:layout_weight="@dimen/weight"
+                android:text="@string/buttonRetake"
+                android:textSize="@dimen/lowerText"
+                android:textColor="@color/primaryTxtColor"
+                android:textAlignment="center"
+                android:textStyle="normal"/>
+
+            <Button
+                android:id="@+id/finish"
+                android:layout_width="@dimen/OdpHeight"
+                android:layout_height="wrap_content"
+                android:layout_weight="@dimen/weight"
+                android:text="@string/buttonFinish"
+                android:textSize="@dimen/lowerText"
+                android:textColor="@color/primaryTxtColor"
+                android:textAlignment="center"
+                android:textStyle="normal"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,3 +1,12 @@
+/*
+* @author   Tihomri Mladenov <tihomir.mladenov777@gmail.com>
+*           This application has been created for final Project 3 on Udacity's Google sponsored "Android For Beginners" course;
+*           02 April 2017
+*
+* @version  v2.0 final
+* @since    v1.0a
+* */
+
 package io.github.timladenov.euquizz;
 
 import android.content.Intent;

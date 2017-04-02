@@ -9,4 +9,6 @@
     <color name="primaryTxtColor">#000000</color>
 
     <color name="resultActivityColor">#00458e</color>
+    <color name="radioHighlightColor">#929292</color>
+    <color name="euYellow">#F5D327</color>
 </resources>

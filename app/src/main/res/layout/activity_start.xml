@@ -9,17 +9,11 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/contentDesc1"
         android:scaleType="centerCrop"
         android:src="@drawable/ep" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/activity_horizontal_margin"
-        android:layout_marginEnd="@dimen/activity_vertical_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:fillViewport="true">
+    <ScrollView style="@style/ScrollView">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,37 +25,33 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/marginGeneral"
+                style="@style/ViewsStart"
                 android:layout_marginTop="@dimen/marginGeneral"
-                android:fontFamily="sans-serif"
                 android:text="@string/appLogoName"
-                android:textAlignment="center"
-                android:textColor="@color/primaryTxtColor"
-                android:textSize="@dimen/capitalText"
-                android:textStyle="normal" />
+                android:textSize="@dimen/capitalText" />
+
+            <View
+                style="@style/YellowLineSpacer" />
 
             <ImageView
                 android:id="@+id/logoImage"
                 android:layout_width="@dimen/logoSize"
                 android:layout_height="@dimen/logoSize"
                 android:layout_marginBottom="@dimen/marginGeneral"
+                android:layout_marginTop="@dimen/marginGeneral"
+                android:contentDescription="@string/contentDesc2"
                 android:src="@drawable/logo_main" />
+
+            <View
+                style="@style/YellowLineSpacer" />
 
             <EditText
                 android:id="@+id/namesField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/ViewsStart_2"
                 android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/marginGeneral"
-                android:fontFamily="sans-serif"
                 android:hint="@string/nameHint"
                 android:singleLine="true"
-                android:textAlignment="center"
-                android:textColor="@color/primaryTxtColor"
-                android:textSize="@dimen/lowerText"
-                android:textStyle="normal" />
+                android:textSize="@dimen/lowerText" />
         </LinearLayout>
     </ScrollView>
 

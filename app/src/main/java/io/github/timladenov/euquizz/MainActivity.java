@@ -1,3 +1,12 @@
+/*
+* @author   Tihomri Mladenov <tihomir.mladenov777@gmail.com>
+*           This application has been created for final Project 3 on Udacity's Google sponsored "Android For Beginners" course;
+*           02 April 2017
+*
+* @version  v2.0 final
+* @since    v1.0a
+* */
+
 package io.github.timladenov.euquizz;
 
 import android.content.Intent;
@@ -12,8 +21,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public String playerNamesMain;
-    public int answerIndex = 0;
-    public int quizScore = 0;
+    public int answerIndex;
+    public int quizScore;
     public String[] correctAnswers;
     public String chosenAnswer;
     private TextView questionNum;
@@ -26,20 +35,57 @@ public class MainActivity extends AppCompatActivity {
     private Button nextView;
     private String[] questionArray;
     private String[] answersArray;
-    private int questionNumber = 2;
-    private int questionIndex = 0;
-    private int checkIndex = 0;
-    private int imageIndex = 1;
-    private int[] drawableArray = new int[10];
+    private String toastString;
+    private int questionNumber;
+    private int questionIndex;
+    private int checkIndex;
+    private int imageIndex;
+    private int[] drawableArray;
+
+    /*
+    *  Sets up the the views initialization on activity creation;
+    *  Sets up views with values for question number, question, answers and background;
+    *
+    *  Calls method fillQuestionArray(),    which populates the question array;
+    *  Calls method fillAnswersAray(),      which populates the answers array;
+    *  Calls method fillDrawableArray(),    which populates the drawables ID array;
+    *  Calls method nextView(),             which if used will call next view;
+    *  Calls method selectedView(),         which if used will pass the selected answer
+    *
+    *  @param questionArray     is an array that keeps all questions. Data is received via "string" values;
+    *  @param answersArray      is an array that keeps all answers. Data is received via "string" values;
+    *  @param correctAnswers    is an array that keeps all correct answers and checks each selected answer;
+    *  @param questionNumber    iterates until (incl.) 10 and updates question number together with @param question or via concatenation;
+    *  @param drawableArray     is an array that contains the IDs to all background drawables;
+    *  @param questionIndex     is used to iterate to the next question in questionArray;
+    *  @param imageIndex        is used to iterate to the next background drawable is drawableArray;
+    *  @param answerIndex       is used to iterate to the next 4 answers in answerArray;
+    *  @param playerNamesMain   is used to store player's name, which is later passed to ResultActivity;
+    *  @param toastString       is used to store Toast message template text;
+    *
+    *  @param questionNum       is used to set the text in question number TextView;
+    *  @param questionText      is used to set the text in question TextView;
+    *  @param answers 0 - 4     is used to set the answers for each question;
+    *  @param backGround        is used to set the background for each question;
+    *  @param nextView          is used to get the ID of Next button;
+    * */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        quizScore = 0;
+        questionNumber = 2;
+        questionIndex = 0;
+        checkIndex = 0;
+        imageIndex = 1;
+
         questionArray = new String[10];
         answersArray = new String[40];
         correctAnswers = new String[10];
+        drawableArray = new int[10];
 
         questionNum = (TextView) findViewById(R.id.questionNumber);
         questionText = (TextView) findViewById(R.id.question);
@@ -81,7 +127,14 @@ public class MainActivity extends AppCompatActivity {
             answerIndex++;
         }
         playerNamesMain = getIntent().getExtras().getString("playerNames");
+        toastString = getResources().getString(R.string.toastMsg);
     }
+
+    /*
+    * Saves variable state on screen rotation;
+    *
+    * @see
+    * */
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
@@ -95,6 +148,14 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt("imageIndex", imageIndex);
         super.onSaveInstanceState(savedInstanceState);
     }
+
+    /*
+    * Restores variable state on screen rotation;
+    *
+    * Calls method setScreen() to restore views state with the saved data;
+    *
+    * @see onCreate doc for variable documentation;
+    * */
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -110,7 +171,15 @@ public class MainActivity extends AppCompatActivity {
         setScreen();
     }
 
-    public void setScreen() {
+    /*
+    * Called only on screen roation to restore the states of the views.
+    *
+    * Further, it is used only after question 1, if the question is 1, the default method from onCreate() is used;
+    *
+    * @see onCreate doc for variable documentation;
+    * */
+
+    private void setScreen() {
 
         questionNum = (TextView) findViewById(R.id.questionNumber);
         questionText = (TextView) findViewById(R.id.question);
@@ -134,7 +203,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void nextView() {
+    /*
+    * If next button is pressed and the question number is not more than 10, the method updates question number, question, answers and background drawable;
+    * Shows Toast message with number of answered questions after each question;
+    *
+    * Else if the question number is more than 10, the Results view is called and the player name and score is passed to it;
+    *
+    * @param quizScore saves the score of the player. It adds 10 for each correct answer;
+    * @param chosenAnswer checks the selected answer to the corresponding correct answer for the respective question in question array;
+    * @see onCreate doc for variable documentation;
+    * */
+
+    private void nextView() {
         nextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
                     questionIndex++;
                     checkIndex++;
 
-                    Toast msg = Toast.makeText(getApplicationContext(), (questionNumber - 2) + " out of 10 questions answered.\n", Toast.LENGTH_SHORT);
+                    Toast msg = Toast.makeText(getApplicationContext(), (questionNumber - 2) + toastString, Toast.LENGTH_SHORT);
                     msg.show();
 
                     answers0.setText(answersArray[answerIndex]);
@@ -174,6 +254,11 @@ public class MainActivity extends AppCompatActivity {
                     answers2.setChecked(false);
                     answers3.setChecked(false);
                 } else {
+
+                    if (chosenAnswer == correctAnswers[checkIndex]) {
+                        quizScore += 10;
+                    }
+
                     Intent toResult = new Intent(getApplicationContext(), ResultActivity.class);
                     toResult.putExtra("playerNamesMain", playerNamesMain);
                     toResult.putExtra("quizScore", quizScore);
@@ -184,7 +269,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void selectedView() {
+    /*
+    * Listens to RadioButton clicks. Makes sure that only one RadioButton can be selected;
+    * Passes the value of the selected RadioButton to @param chosenAnswer for check;
+    *
+    * @see nextView doc for variable chosenAnswer;
+    * @see onCreate doc for variable documentation;
+    * */
+
+    private void selectedView() {
         answers0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -238,7 +331,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void fillQuestionArray() {
+    /*
+    * Receives question values via String values and stores them in an array.
+    *
+    * It can work with different string translations;
+    * */
+
+    private void fillQuestionArray() {
         questionArray[0] = getString(R.string.question0);
         questionArray[1] = getString(R.string.question1);
         questionArray[2] = getString(R.string.question2);
@@ -251,7 +350,13 @@ public class MainActivity extends AppCompatActivity {
         questionArray[9] = getString(R.string.question9);
     }
 
-    public void fillAnswersAray() {
+    /*
+    * Receives answer values via String values and stores them in an array.
+    *
+    * It can work with different string translations;
+    * */
+
+    private void fillAnswersAray() {
         answersArray[0] = getString(R.string.answerString0); // correct
         answersArray[1] = getString(R.string.answerString1);
         answersArray[2] = getString(R.string.answerString2);
@@ -324,7 +429,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void fillDrawableArray() {
+    /*
+    * Receives background resources IDs via integer values and stores them in an array.
+    * */
+
+    private void fillDrawableArray() {
         drawableArray[0] = R.drawable.pic_1;
         drawableArray[1] = R.drawable.pic_2;
         drawableArray[2] = R.drawable.pic_3;

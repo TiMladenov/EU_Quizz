@@ -10,54 +10,35 @@
         android:id="@+id/quesitonBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/contentDesc3"
         android:scaleType="centerCrop"
         android:src="@drawable/ep" />
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/activity_horizontal_margin"
-        android:layout_marginEnd="@dimen/activity_vertical_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:fillViewport="true">
+        style="@style/ScrollView">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <View style="@style/YellowLineSpacer" />
+
             <TextView
                 android:id="@+id/questionNumber"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/OdpHeight"
-                android:layout_weight="@dimen/weight"
-                android:alpha="@dimen/alpha"
-                android:background="@color/colorForeground"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
+                style="@style/QuestionViews"
                 android:text="@string/questionNumber"
-                android:textAlignment="center"
-                android:textColor="@color/primaryTxtColor"
-                android:textSize="@dimen/middleText"
-                android:textStyle="normal" />
+                android:textSize="@dimen/middleText" />
 
             <TextView
                 android:id="@+id/question"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/OdpHeight"
+                style="@style/QuestionViews"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_weight="@dimen/weight"
-                android:alpha="@dimen/alpha"
-                android:background="@color/colorForeground"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
                 android:text="@string/question"
-                android:textAlignment="center"
-                android:textColor="@color/primaryTxtColor"
-                android:textSize="@dimen/lowerText"
-                android:textStyle="normal" />
+                android:textSize="@dimen/lowerText" />
+
+            <View style="@style/YellowLineSpacer" />
 
             <LinearLayout
                 android:id="@+id/answersField"
@@ -66,103 +47,60 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:alpha="@dimen/alpha"
-                android:orientation="vertical"
                 android:background="@color/colorForeground"
-                android:gravity="center|start">
+                android:gravity="center|start"
+                android:orientation="vertical">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/lineHeight"
-                    android:background="@color/primaryTxtColor" />
+                <View style="@style/YellowLineSpacer" />
 
                 <RadioButton
                     android:id="@+id/answers0"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/answer0"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/primaryTxtColor"
-                    android:textSize="@dimen/lowerText"
-                    android:textStyle="normal" />
+                    style="@style/RadioButtonStyle"
+                    android:text="@string/answer0" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/lineHeight"
-                    android:background="@color/primaryTxtColor" />
+                <View style="@style/YellowLineSpacer" />
 
                 <RadioButton
                     android:id="@+id/answers1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/answer1"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/primaryTxtColor"
-                    android:textSize="@dimen/lowerText"
-                    android:textStyle="normal" />
+                    style="@style/RadioButtonStyle"
+                    android:text="@string/answer1" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/lineHeight"
-                    android:background="@color/primaryTxtColor" />
+                <View style="@style/YellowLineSpacer" />
 
                 <RadioButton
                     android:id="@+id/answers2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/answer2"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/primaryTxtColor"
-                    android:textSize="@dimen/lowerText"
-                    android:textStyle="normal" />
+                    style="@style/RadioButtonStyle"
+                    android:text="@string/answer2" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/lineHeight"
-                    android:background="@color/primaryTxtColor" />
+                <View style="@style/YellowLineSpacer" />
 
                 <RadioButton
                     android:id="@+id/answers3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/answer3"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/primaryTxtColor"
-                    android:textSize="@dimen/lowerText"
-                    android:textStyle="normal" />
+                    style="@style/RadioButtonStyle"
+                    android:text="@string/answer3" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/lineHeight"
-                    android:background="@color/primaryTxtColor" />
+                <View style="@style/YellowLineSpacer" />
 
             </LinearLayout>
+
+            <View style="@style/YellowLineSpacer" />
 
             <RelativeLayout
                 android:id="@+id/nextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/primaryTxtColor"
+                android:background="@color/resultActivityColor"
                 android:gravity="center|bottom">
 
                 <Button
                     android:id="@+id/nextView"
+                    style="@style/ButtonsStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/next"
-                    android:textSize="@dimen/lowerText"
-                    android:textColor="@color/primaryTxtColor"
-                    android:textAlignment="center"
-                    android:textStyle="normal"/>
+                    android:text="@string/next" />
 
             </RelativeLayout>
+
+            <View style="@style/YellowLineSpacer" />
 
         </LinearLayout>
     </ScrollView>

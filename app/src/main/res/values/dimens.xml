@@ -7,6 +7,7 @@
     <dimen name="middleText">30sp</dimen>
     <dimen name="lowerText">20sp</dimen>
     <dimen name="marginGeneral">20dp</dimen>
+    <dimen name="smallGeneral">10dp</dimen>
     <dimen name="logoSize">250dp</dimen>
     <item name="alpha" format="float" type="dimen">0.75</item>
 
@@ -14,4 +15,7 @@
     <dimen name="lineHeight">1dp</dimen>
     <dimen name="OdpHeight">0dp</dimen>
     <item name="weight" format="float" type="dimen">1</item>
+
+    <dimen name="resultTxtBoxSize">150dp</dimen>
+    <dimen name="imageButtonSize">75dp</dimen>
 </resources>

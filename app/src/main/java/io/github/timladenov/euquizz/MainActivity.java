@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        question = "Question ";
+        question = getResources().getString(R.string.questionTxt);
 
         quizScore = 0;
         questionNumber = 2;
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
         nextView = (Button) findViewById(R.id.nextView);
 
         if (questionNumber > 2) {
-            String question = "Question ";
+            String question = getResources().getString(R.string.questionTxt);
             question += Integer.toString(questionNumber - 1);
             questionNum.setText(question);
             questionText.setText(questionArray[questionIndex - 1]);
@@ -413,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
     * */
 
     private void changeViewContent() {
-        question = "Question ";
+        question = getResources().getString(R.string.questionTxt);
         question += questionNumber;
         questionNum.setText(question);
         questionNumber++;

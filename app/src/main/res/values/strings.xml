@@ -18,6 +18,7 @@
     <string name="answer2" translatable="false">""</string>
     <string name="answer3" translatable="false">""</string>
 
+    <string name="questionTxt">Question" "</string>
     <string name="toastMsg">" "out of 10 questions answered.</string>
 
     <string name="question0">When was the European Union created?</string>

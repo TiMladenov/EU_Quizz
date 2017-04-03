@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public int quizScore;
     public String[] correctAnswers;
     public String chosenAnswer;
-    EditText editTextBox0;
+    private EditText editTextBox0;
     private TextView questionNum;
     private TextView questionText;
     private RadioButton answers0;

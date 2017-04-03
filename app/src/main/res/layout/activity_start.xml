@@ -30,8 +30,7 @@
                 android:text="@string/appLogoName"
                 android:textSize="@dimen/capitalText" />
 
-            <View
-                style="@style/YellowLineSpacer" />
+            <View style="@style/YellowLineSpacer" />
 
             <ImageView
                 android:id="@+id/logoImage"
@@ -42,8 +41,7 @@
                 android:contentDescription="@string/contentDesc2"
                 android:src="@drawable/logo_main" />
 
-            <View
-                style="@style/YellowLineSpacer" />
+            <View style="@style/YellowLineSpacer" />
 
             <EditText
                 android:id="@+id/namesField"
@@ -51,6 +49,7 @@
                 android:layout_gravity="center"
                 android:hint="@string/nameHint"
                 android:singleLine="true"
+                android:text=""
                 android:textSize="@dimen/lowerText" />
         </LinearLayout>
     </ScrollView>

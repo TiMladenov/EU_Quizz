@@ -3,7 +3,7 @@
 *           This application has been created for final Project 3 on Udacity's Google sponsored "Android For Beginners" course;
 *           02 April 2017
 *
-* @version  v2.0 final
+* @version  v2.1 final
 * @since    v1.4
 * */
 

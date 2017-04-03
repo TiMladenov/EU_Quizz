@@ -28,7 +28,7 @@
     <string name="question5">Who was not a president of the European Commission?</string>
     <string name="question6">Which of these is not part of the European Union?</string>
     <string name="question7">The Presidency of the European Union is rotated every _ months?</string>
-    <string name="question8">Who is regarded as the \'chief architect\' of European Unity?</string>
+    <string name="question8">Who is not regarded as the \'chief architect\' of the European Union?</string>
     <string name="question9">When you cross the border from Germany to the Netherlands without showing your passport you do so due to:</string>
 
     <string name="answerString0">In 1993</string>
@@ -80,6 +80,13 @@
     <string name="answerString37">The Schengen Agreement</string>
     <string name="answerString38">The Brussels Agreement</string>
     <string name="answerString39">The Treaty of Rome</string>
+
+    <string name="strValue0">""</string>
+    <string name="strValue1">""</string>
+    <string name="strValue2">""</string>
+    <string name="strValue3">""</string>
+
+    <string name="editTextHint">Enter the answer here</string>
 
     <string name="resultHeader">Results</string>
     <string name="showResult">""</string>

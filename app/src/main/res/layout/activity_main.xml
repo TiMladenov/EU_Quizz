@@ -83,6 +83,100 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/answersField2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:alpha="@dimen/alpha"
+                android:background="@color/colorForeground"
+                android:gravity="center|start"
+                android:orientation="vertical">
+
+                <View style="@style/YellowLineSpacer" />
+
+                <CheckBox
+                    android:id="@+id/checkbox0"
+                    style="@style/CheckBoxStyle"
+                    android:text="@string/answer0" />
+
+                <View style="@style/YellowLineSpacer" />
+
+                <CheckBox
+                    android:id="@+id/checkbox1"
+                    style="@style/CheckBoxStyle"
+                    android:text="@string/answer1" />
+
+                <View style="@style/YellowLineSpacer" />
+
+                <CheckBox
+                    android:id="@+id/checkbox2"
+                    style="@style/CheckBoxStyle"
+                    android:text="@string/answer2" />
+
+                <View style="@style/YellowLineSpacer" />
+
+                <CheckBox
+                    android:id="@+id/checkbox3"
+                    style="@style/CheckBoxStyle"
+                    android:text="@string/answer3" />
+
+                <View style="@style/YellowLineSpacer" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/answersField3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:alpha="@dimen/alpha"
+                android:background="@color/colorForeground"
+                android:gravity="center|start"
+                android:orientation="vertical">
+
+                <View style="@style/YellowLineSpacer" />
+
+                <TextView
+                    android:id="@+id/textBox0"
+                    style="@style/TextViewStyle"
+                    android:text="@string/strValue0" />
+
+                <View style="@style/YellowLineSpacer" />
+
+                <TextView
+                    android:id="@+id/textBox1"
+                    style="@style/TextViewStyle"
+                    android:text="@string/strValue1" />
+
+                <View style="@style/YellowLineSpacer" />
+
+                <TextView
+                    android:id="@+id/textBox2"
+                    style="@style/TextViewStyle"
+                    android:text="@string/strValue2" />
+
+                <View style="@style/YellowLineSpacer" />
+
+                <TextView
+                    android:id="@+id/textBox3"
+                    style="@style/TextViewStyle"
+                    android:text="@string/strValue3" />
+
+                <View style="@style/YellowLineSpacer" />
+
+                <EditText
+                    android:id="@+id/editTextBox0"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/editTextHint" />
+
+                <View style="@style/YellowLineSpacer" />
+
+            </LinearLayout>
+
             <View style="@style/YellowLineSpacer" />
 
             <RelativeLayout

@@ -3,7 +3,7 @@
 *           This application has been created for final Project 3 on Udacity's Google sponsored "Android For Beginners" course;
 *           02 April 2017
 *
-* @version  v2.0 final
+* @version  v2.1 final
 * @since    v1.0a
 * */
 
@@ -14,10 +14,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class StartActivity extends AppCompatActivity {
 
-    private String playerNames = "";
+    private String playerNames;
     private int sleePTime = 3500;
 
     @Override
@@ -69,20 +70,29 @@ public class StartActivity extends AppCompatActivity {
         };
         showNamesField.start();
 
-        /*OnClickListener will store the name as entered in the EditText view, in a String.
-        * Then it will send the string to the next Activity for further use.
+        /*
+        * OnClickListener will store the name as entered in the EditText view, in a String,
+        * then it will send the string to the next Activity for further use.
+        *
+        * Player won't proceed without entering a name;
         * */
 
         namesField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 playerNames = namesField.getText().toString();
-//                Log.v("playerNames", playerNames);
 
-                Intent proceedToMain = new Intent(getApplicationContext(), MainActivity.class);
-                proceedToMain.putExtra("playerNames", playerNames);
-                startActivity(proceedToMain);
-                finish();
+                if (playerNames.equals("")) {
+                    Toast msg = Toast.makeText(getApplicationContext(), "Enter a name.", Toast.LENGTH_SHORT);
+                    msg.show();
+                } else if (!(playerNames.equals(""))) {
+                    Intent proceedToMain = new Intent(getApplicationContext(), MainActivity.class);
+                    proceedToMain.putExtra("playerNames", playerNames);
+                    startActivity(proceedToMain);
+                    finish();
+                }
+
+
             }
         });
     }

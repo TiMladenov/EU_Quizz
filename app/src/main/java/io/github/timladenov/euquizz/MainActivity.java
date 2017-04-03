@@ -3,7 +3,7 @@
 *           This application has been created for final Project 3 on Udacity's Google sponsored "Android For Beginners" course;
 *           02 April 2017
 *
-* @version  v2.0 final
+* @version  v2.1 final
 * @since    v1.0a
 * */
 
@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -25,12 +27,23 @@ public class MainActivity extends AppCompatActivity {
     public int quizScore;
     public String[] correctAnswers;
     public String chosenAnswer;
+    EditText editTextBox0;
     private TextView questionNum;
     private TextView questionText;
     private RadioButton answers0;
     private RadioButton answers1;
     private RadioButton answers2;
     private RadioButton answers3;
+    private CheckBox answers0check;
+    private CheckBox answers1check;
+    private CheckBox answers2check;
+    private CheckBox answers3check;
+    private TextView answers0text;
+    private TextView answers1text;
+    private TextView answers2text;
+    private TextView answers3text;
+    private String question;
+    private boolean notChecked;
     private ImageView backGround;
     private Button nextView;
     private String[] questionArray;
@@ -42,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private int imageIndex;
     private int[] drawableArray;
 
-    /*
+   /*
     *  Sets up the the views initialization on activity creation;
     *  Sets up views with values for question number, question, answers and background;
     *
@@ -50,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
     *  Calls method fillAnswersAray(),      which populates the answers array;
     *  Calls method fillDrawableArray(),    which populates the drawables ID array;
     *  Calls method nextView(),             which if used will call next view;
-    *  Calls method selectedView(),         which if used will pass the selected answer
+    *  Calls method selectedRadioView(),    which if used will pass the selected answer;
+    *  Calls method selectedCheckBoxView(), which if used will pass the selected checkBox answer, if correct;
     *
     *  @param questionArray     is an array that keeps all questions. Data is received via "string" values;
     *  @param answersArray      is an array that keeps all answers. Data is received via "string" values;
@@ -62,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
     *  @param answerIndex       is used to iterate to the next 4 answers in answerArray;
     *  @param playerNamesMain   is used to store player's name, which is later passed to ResultActivity;
     *  @param toastString       is used to store Toast message template text;
+    *  @param question          is used as a template to create question number;
     *
     *  @param questionNum       is used to set the text in question number TextView;
     *  @param questionText      is used to set the text in question TextView;
@@ -75,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        question = "Question ";
 
         quizScore = 0;
         questionNumber = 2;
@@ -87,6 +103,10 @@ public class MainActivity extends AppCompatActivity {
         correctAnswers = new String[10];
         drawableArray = new int[10];
 
+        /*
+        * Sets up the fields for RadioButton questions;
+        * */
+
         questionNum = (TextView) findViewById(R.id.questionNumber);
         questionText = (TextView) findViewById(R.id.question);
         answers0 = (RadioButton) findViewById(R.id.answers0);
@@ -96,11 +116,34 @@ public class MainActivity extends AppCompatActivity {
         backGround = (ImageView) findViewById(R.id.quesitonBackground);
         nextView = (Button) findViewById(R.id.nextView);
 
+        /*
+        * Sets up the fields for CheckBox questions;
+        * */
+
+        answers0check = (CheckBox) findViewById(R.id.checkbox0);
+        answers1check = (CheckBox) findViewById(R.id.checkbox1);
+        answers2check = (CheckBox) findViewById(R.id.checkbox2);
+        answers3check = (CheckBox) findViewById(R.id.checkbox3);
+
+        /*
+        * Sets up the fields for TextView for the questions and EditText view for response entry with @param editTextBox0;
+        * */
+
+        answers0text = (TextView) findViewById(R.id.textBox0);
+        answers1text = (TextView) findViewById(R.id.textBox1);
+        answers2text = (TextView) findViewById(R.id.textBox2);
+        answers3text = (TextView) findViewById(R.id.textBox3);
+        editTextBox0 = (EditText) findViewById(R.id.editTextBox0);
+        notChecked = true;
+
         fillQuestionArray();
         fillAnswersAray();
         fillDrawableArray();
 
-        String question = "Question ";
+        /*
+        * Populates first views with the text;
+        * */
+
         question += Integer.toString(questionNumber - 1);
         questionNum.setText(question);
         questionText.setText(questionArray[questionIndex]);
@@ -114,7 +157,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         nextView();
-        selectedView();
+        selectedRadioView();
+        editTextCheck();
 
         if (answerIndex == 0) {
             answers0.setText(answersArray[answerIndex]);
@@ -128,12 +172,19 @@ public class MainActivity extends AppCompatActivity {
         }
         playerNamesMain = getIntent().getExtras().getString("playerNames");
         toastString = getResources().getString(R.string.toastMsg);
+
+        /*
+        * Hides the unused views until they are needed;
+        * */
+
+        findViewById(R.id.answersField2).setVisibility(View.GONE);
+        findViewById(R.id.answersField3).setVisibility(View.GONE);
     }
 
     /*
     * Saves variable state on screen rotation;
     *
-    * @see
+    * @see onCreate doc for variable documentation;
     * */
 
     @Override
@@ -146,11 +197,12 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt("questionIndex", questionIndex);
         savedInstanceState.putInt("checkIndex", checkIndex);
         savedInstanceState.putInt("imageIndex", imageIndex);
+        savedInstanceState.putBoolean("notChecked", notChecked);
         super.onSaveInstanceState(savedInstanceState);
     }
 
     /*
-    * Restores variable state on screen rotation;
+    * Restores variable and View state on screen rotation;
     *
     * Calls method setScreen() to restore views state with the saved data;
     *
@@ -168,11 +220,22 @@ public class MainActivity extends AppCompatActivity {
         questionIndex = savedInstanceState.getInt("questionIndex");
         checkIndex = savedInstanceState.getInt("checkIndex");
         imageIndex = savedInstanceState.getInt("imageIndex");
+        notChecked = savedInstanceState.getBoolean("notChecked");
+
+        if (questionNumber - 1 > 8 && questionNumber - 1 < 10) {
+            findViewById(R.id.answersField).setVisibility(View.GONE);
+            findViewById(R.id.answersField2).setVisibility(View.VISIBLE);
+            findViewById(R.id.answersField3).setVisibility(View.GONE);
+        } else if (questionNumber - 1 == 10) {
+            findViewById(R.id.answersField).setVisibility(View.GONE);
+            findViewById(R.id.answersField2).setVisibility(View.GONE);
+            findViewById(R.id.answersField3).setVisibility(View.VISIBLE);
+        }
         setScreen();
     }
 
     /*
-    * Called only on screen roation to restore the states of the views.
+    * Called only on screen rotation to restore the states of the views.
     *
     * Further, it is used only after question 1, if the question is 1, the default method from onCreate() is used;
     *
@@ -201,10 +264,17 @@ public class MainActivity extends AppCompatActivity {
             answers3.setText(answersArray[answerIndex - 1]);
             backGround.setImageResource(drawableArray[imageIndex - 1]);
         }
+
+        if (questionNumber - 1 == 10) {
+            answers0text.setText(answersArray[answerIndex - 4]);
+            answers1text.setText(answersArray[answerIndex - 3]);
+            answers2text.setText(answersArray[answerIndex - 2]);
+            answers3text.setText(answersArray[answerIndex - 1]);
+        }
     }
 
     /*
-    * If next button is pressed and the question number is not more than 10, the method updates question number, question, answers and background drawable;
+    * If next button is pressed and the question number is not more than 10, the method calls method changeViewContent();
     * Shows Toast message with number of answered questions after each question;
     *
     * Else if the question number is more than 10, the Results view is called and the player name and score is passed to it;
@@ -218,27 +288,37 @@ public class MainActivity extends AppCompatActivity {
         nextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tmpQuestionNumber = "Question ";
 
-                if (questionNumber <= 10) {
+                if (questionIndex < 8) {
 
-                    if (chosenAnswer == correctAnswers[checkIndex]) {
+                    //Added in v2.1. Question 8 couldn't enter the default answer check method, had to override it here;
+
+                    if (questionIndex == 7) {
+                        answers0.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (answers0.isChecked()) {
+                                    String chosenReply = "";
+
+                                    answers1.setChecked(false);
+                                    answers2.setChecked(false);
+                                    answers3.setChecked(false);
+                                    chosenReply = answers0.getText().toString();
+                                    if (checkAnswer(chosenReply, correctAnswers[checkIndex])) {
+                                        quizScore += 10;
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    //Added in v2.1. Default check method for RadioButtons;
+                    boolean match = checkAnswer(chosenAnswer, correctAnswers[checkIndex]);
+                    if (match) {
                         quizScore += 10;
                     }
 
-                    tmpQuestionNumber += questionNumber;
-                    questionNum.setText(tmpQuestionNumber);
-                    questionNumber++;
-
-                    backGround.setImageResource(drawableArray[imageIndex]);
-                    imageIndex++;
-
-                    questionText.setText(questionArray[questionIndex]);
-                    questionIndex++;
-                    checkIndex++;
-
-                    Toast msg = Toast.makeText(getApplicationContext(), (questionNumber - 2) + toastString, Toast.LENGTH_SHORT);
-                    msg.show();
+                    changeViewContent();
 
                     answers0.setText(answersArray[answerIndex]);
                     answerIndex++;
@@ -253,10 +333,56 @@ public class MainActivity extends AppCompatActivity {
                     answers1.setChecked(false);
                     answers2.setChecked(false);
                     answers3.setChecked(false);
-                } else {
+                } else if (questionIndex >= 8 && questionIndex <= 9) {
 
-                    if (chosenAnswer == correctAnswers[checkIndex]) {
-                        quizScore += 10;
+                    //Added in v2.1. Default method for CheckBox answer check;
+
+                    if (questionIndex == 8) {
+                        findViewById(R.id.answersField).setVisibility(View.GONE);
+                        findViewById(R.id.answersField2).setVisibility(View.VISIBLE);
+                        findViewById(R.id.answersField3).setVisibility(View.GONE);
+
+                        changeViewContent();
+
+                        answers0check.setText(answersArray[answerIndex]);
+                        answerIndex++;
+                        answers1check.setText(answersArray[answerIndex]);
+                        answerIndex++;
+                        answers2check.setText(answersArray[answerIndex]);
+                        answerIndex++;
+                        answers3check.setText(answersArray[answerIndex]);
+                        answerIndex++;
+
+                        selectedCheckBoxView();
+                    } else if (questionIndex == 9) {
+
+                        //Added in v2.1. Default method for EditText answer check;
+
+                        findViewById(R.id.answersField).setVisibility(View.GONE);
+                        findViewById(R.id.answersField2).setVisibility(View.GONE);
+                        findViewById(R.id.answersField3).setVisibility(View.VISIBLE);
+
+                        changeViewContent();
+
+                        answers0text.setText(answersArray[answerIndex]);
+                        answerIndex++;
+                        answers1text.setText(answersArray[answerIndex]);
+                        answerIndex++;
+                        answers2text.setText(answersArray[answerIndex]);
+                        answerIndex++;
+                        answers3text.setText(answersArray[answerIndex]);
+                        answerIndex++;
+                    }
+                } else if (questionNumber > 9) {
+                    /*
+                    * Goes to Result intent after the last result;
+                    * Bypasses EditText check if NULL in order not to crash the application;
+                    * */
+
+                    if (!(chosenAnswer == null)) {
+                        if (chosenAnswer.equals(correctAnswers[checkIndex])) {
+                            quizScore += 10;
+                        }
                     }
 
                     Intent toResult = new Intent(getApplicationContext(), ResultActivity.class);
@@ -270,6 +396,107 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
+    * @return Returns true if the chosen answer is the same as the correct answer;
+    * If true, in method nextView(), 10 points will be added once for each correct answer;
+    * */
+
+    private boolean checkAnswer(String chosen, String correct) {
+        return (chosen == correct);
+    }
+
+    /*
+    * Sets up View resources according to the View that is being loaded;
+    * Background image, question number, question, question Text, answer text;
+    * Displays a Toast message with the answered questions;
+    *
+    * @see onCreate doc for variable documentation;
+    * */
+
+    private void changeViewContent() {
+        question = "Question ";
+        question += questionNumber;
+        questionNum.setText(question);
+        questionNumber++;
+
+        backGround.setImageResource(drawableArray[imageIndex]);
+        imageIndex++;
+
+        questionText.setText(questionArray[questionIndex]);
+        questionIndex++;
+        checkIndex++;
+
+        Toast msg = Toast.makeText(getApplicationContext(), (questionNumber - 2) + toastString, Toast.LENGTH_SHORT);
+        msg.show();
+    }
+
+    /*
+    * Listens to player's open response entry for question number 10;
+    * Removes any spaces with @return correctAnswers[checkIndex]. Strings are case sensitive;
+    * */
+
+    private void editTextCheck() {
+        editTextBox0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chosenAnswer = editTextBox0.getText().toString();
+                chosenAnswer = chosenAnswer.replaceAll("\\s+", "");
+                correctAnswers[checkIndex] = correctAnswers[checkIndex].replaceAll("\\s+", "");
+            }
+        });
+    }
+
+    /*
+    * Listens to player's CheckBox selection on each of the four CheckBoxes. Makes sure that he can
+    * score the correct combination of answers only once with @param notChecked;
+    *
+    * Assigns once 10 points for correct combination of answers;
+    *
+    * @see onCreate doc for variable documentation;
+    * */
+
+    private void selectedCheckBoxView() {
+        answers0check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked())) && notChecked) {
+                    quizScore += 10;
+                    notChecked = false;
+                }
+            }
+        });
+
+        answers1check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked())) && notChecked) {
+                    quizScore += 10;
+                    notChecked = false;
+                }
+            }
+        });
+
+        answers2check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked())) && notChecked) {
+                    quizScore += 10;
+                    notChecked = false;
+                }
+            }
+        });
+
+        answers3check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked())) && notChecked) {
+                    quizScore += 10;
+                    notChecked = false;
+                }
+            }
+        });
+    }
+
+    /*
     * Listens to RadioButton clicks. Makes sure that only one RadioButton can be selected;
     * Passes the value of the selected RadioButton to @param chosenAnswer for check;
     *
@@ -277,7 +504,7 @@ public class MainActivity extends AppCompatActivity {
     * @see onCreate doc for variable documentation;
     * */
 
-    private void selectedView() {
+    private void selectedRadioView() {
         answers0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

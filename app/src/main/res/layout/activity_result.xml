@@ -59,6 +59,7 @@
             <ImageButton
                 android:id="@+id/visitEP"
                 style="@style/ImageButtonStyle"
+                android:layout_marginStart="@dimen/smallGeneral"
                 android:contentDescription="@string/contentDesc5"
                 android:src="@drawable/button_state_selector_1" />
         </LinearLayout>
@@ -74,6 +75,8 @@
             <ImageButton
                 android:id="@+id/visitECom"
                 style="@style/ImageButtonStyle"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/smallGeneral"
                 android:contentDescription="@string/contentDesc6"
                 android:src="@drawable/button_state_selector_2" />
         </LinearLayout>

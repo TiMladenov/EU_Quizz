@@ -68,6 +68,42 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="CheckBoxStyle" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/primaryTxtColor</item>
+        <item name="android:textSize">@dimen/lowerText</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextViewStyle" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:layout_marginStart">@dimen/smallGeneral</item>
+        <item name="android:textColor">@color/primaryTxtColor</item>
+        <item name="android:textSize">@dimen/lowerText</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="EditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/primaryTxtColor</item>
+        <item name="android:textSize">@dimen/lowerText</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:text">""</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="ButtonsStyle" parent="@android:style/Widget.Button">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAlignment">center</item>
@@ -102,7 +138,6 @@
     <style name="ImageButtonStyle" parent="@android:style/Widget.ImageButton">
         <item name="android:layout_width">@dimen/imageButtonSize</item>
         <item name="android:layout_height">@dimen/imageButtonSize</item>
-        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="yellowSpacerVertical" parent="@android:style/Widget.TextView">

@@ -11,6 +11,8 @@
     <style name="YellowLineSpacer" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/lineHeight</item>
+        <item name="android:layout_marginTop">@dimen/lineHeight</item>
+        <item name="android:layout_marginBottom">@dimen/lineHeight</item>
         <item name="android:background">@color/euYellow</item>
     </style>
 
@@ -21,6 +23,7 @@
         <item name="android:layout_marginEnd">@dimen/activity_vertical_margin</item>
         <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
         <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:fadeScrollbars">false</item>
         <item name="android:fillViewport">true</item>
     </style>
 
@@ -30,7 +33,7 @@
         <item name="android:layout_marginBottom">@dimen/marginGeneral</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textColor">@color/primaryTxtColor</item>
+        <item name="android:textColor">@color/resultActivityColor</item>
         <item name="android:textStyle">normal</item>
     </style>
 
@@ -40,16 +43,16 @@
         <item name="android:layout_marginBottom">@dimen/marginGeneral</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textColor">@color/primaryTxtColor</item>
+        <item name="android:textColor">@color/resultActivityColor</item>
+        <item name="android:textColorHint">@color/resultActivityColor</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="QuestionViews" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/OdpHeight</item>
-        <item name="android:layout_weight">@dimen/weight</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:alpha">@dimen/alpha</item>
-        <item name="android:background">@color/colorForeground</item>
+        <item name="android:background">@drawable/view_forms</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
@@ -116,11 +119,13 @@
     <style name="ResultDisplays" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/resultTxtBoxSize</item>
-        <item name="android:alpha">@dimen/alpha</item>
-        <item name="android:background">@color/colorForeground</item>
+        <item name="android:alpha">@dimen/alpha_results</item>
+        <item name="android:background">@drawable/view_forms</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:paddingStart">@dimen/smallPadding</item>
+        <item name="android:paddingEnd">@dimen/smallPadding</item>
         <item name="android:textColor">@color/primaryTxtColor</item>
         <item name="android:textSize">@dimen/lowerText</item>
         <item name="android:textStyle">normal</item>

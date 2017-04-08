@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Тест за ЕС</string>
+    <string name="answer0" translatable="false">\"\"</string>
+    <string name="answer1" translatable="false">\"\"</string>
+    <string name="answer2" translatable="false">\"\"</string>
+    <string name="answer3" translatable="false">\"\"</string>
+    <string name="answerString0" translatable="true">През 1993</string>
+    <string name="answerString1" translatable="true">През 2014</string>
+    <string name="answerString10" translatable="true">12</string>
+    <string name="answerString11" translatable="true">10</string>
+    <string name="answerString12" translatable="true">Е-Марка</string>
+    <string name="answerString13" translatable="true">Европейска валутна единица</string>
+    <string name="answerString14" translatable="true">Стерлинг</string>
+    <string name="answerString15" translatable="true">Лира</string>
+    <string name="answerString2" translatable="true">През 2003</string>
+    <string name="answerString20" translatable="true">Сантер</string>
+    <string name="answerString21" translatable="true">Проди</string>
+    <string name="answerString22" translatable="true">Деаен</string>
+    <string name="answerString23" translatable="true">Юнкер</string>
+    <string name="answerString24" translatable="true">Европейския съвет</string>
+    <string name="answerString25" translatable="true">Съвета на Европа</string>
+    <string name="answerString26" translatable="true">Съвета</string>
+    <string name="answerString27" translatable="true">Европейската комисия</string>
+    <string name="answerString28" translatable="true">2г, 6м</string>
+    <string name="answerString29" translatable="true">0г, 12м</string>
+    <string name="answerString3" translatable="true">През 1956</string>
+    <string name="answerString30" translatable="true">4г, 0м</string>
+    <string name="answerString31" translatable="true">5г, 0м</string>
+    <string name="answerString32" translatable="true">Роберт Шуман</string>
+    <string name="answerString33" translatable="true">Жан Моне</string>
+    <string name="answerString34" translatable="true">Уинстън Чърчил</string>
+    <string name="answerString35" translatable="true">Шуман Роберт</string>
+    <string name="answerString36" translatable="true">Договора от Маастрихт</string>
+    <string name="answerString37" translatable="true">Споразумението от Шенген</string>
+    <string name="answerString38" translatable="true">Споразумението от Брюксел</string>
+    <string name="answerString39" translatable="true">Договора от Рим</string>
+    <string name="appLogoName" translatable="true">Добре дошли в теста за ЕС</string>
+    <string name="buttonFinish" translatable="true">Затвори</string>
+    <string name="buttonRetake" translatable="true">Повтори</string>
+    <string name="ecWebsite" translatable="true">Към сайта на ЕК</string>
+    <string name="epWebsite" translatable="true">Към сайта на ЕП</string>
+    <string name="editTextHint" translatable="true">Въведете отговора тук</string>
+    <string name="enterNameToast" translatable="true">Въведете име</string>
+    <string name="nameHint" translatable="true">Въведете името си тук</string>
+    <string name="next" translatable="true">Следващ</string>
+    <string name="question0" translatable="true">Кога е създаден ЕС?</string>
+    <string name="question1" translatable="true">Колко са страните-члеки на ЕС, когато Еврото влиза в циркулация през 2000 г.?</string>
+    <string name="question2" translatable="true">Колко страни от ЕС са членки на Еврозоната, когато Еврото влиза в циркулация на 01 Януари 2002?</string>
+    <string name="question3" translatable="true">Кое е старото наименование на европейската валута, позната днес като Евро?</string>
+    <string name="question4" translatable="true">Колко звезди има на знамето на ЕС?</string>
+    <string name="question5" translatable="true">Кой не е бил президент на ЕК?</string>
+    <string name="question6" translatable="true">Кое от следните не е част от ЕС?</string>
+    <string name="question7" translatable="true">Президента на ЕС се сменя на всеки ... месеца?</string>
+    <string name="question8" translatable="true">Кой не е главен архитект на ЕС?</string>
+    <string name="question9" translatable="true">Преминавате границата между Германия и Нидерландия без паспорт, благодарение на:</string>
+    <string name="questionTxt" translatable="true">"Въпрос "</string>
+    <string name="resultHeader" translatable="true">Резултати</string>
+    <string name="resultText0" translatable="true">Чудесно! Знаете всичко за ЕС!</string>
+    <string name="resultText1" translatable="true">Поздравления! Знаете повече от средното ниво за ЕС!</string>
+    <string name="resultText2" translatable="true">Добра работа! Покривата средно ниво на познания за ЕС!</string>
+    <string name="resultText3" translatable="true">Имате знания почти на средно ниво за ЕС.</string>
+    <string name="resultText4" translatable="true">Трябва да учите повече. Явете се отново на теста.</string>
+    <string name="scoreMessage1" translatable="true">"Имате "</string>
+    <string name="scoreMessage2" translatable="true">" от 100 точки. Благорим Ви за участието, "</string>
+    <string name="showResult" translatable="false"></string>
+    <string name="toastMsg" translatable="true">" от 10 въпроси"</string>
+</resources>

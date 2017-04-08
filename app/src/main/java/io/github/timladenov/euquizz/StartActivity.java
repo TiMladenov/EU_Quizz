@@ -3,7 +3,7 @@
 *           This application has been created for final Project 3 on Udacity's Google sponsored "Android For Beginners" course;
 *           02 April 2017
 *
-* @version  v2.1 final
+* @version  v2.2 final
 * @since    v1.0a
 * */
 
@@ -83,7 +83,7 @@ public class StartActivity extends AppCompatActivity {
                 playerNames = namesField.getText().toString();
 
                 if (playerNames.equals("")) {
-                    Toast msg = Toast.makeText(getApplicationContext(), "Enter a name.", Toast.LENGTH_SHORT);
+                    Toast msg = Toast.makeText(getApplicationContext(), getResources().getString(R.string.enterNameToast), Toast.LENGTH_SHORT);
                     msg.show();
                 } else if (!(playerNames.equals(""))) {
                     Intent proceedToMain = new Intent(getApplicationContext(), MainActivity.class);

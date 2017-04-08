@@ -6,10 +6,12 @@
     <dimen name="capitalText">40sp</dimen>
     <dimen name="middleText">30sp</dimen>
     <dimen name="lowerText">20sp</dimen>
+    <dimen name="smallPadding">5dp</dimen>
     <dimen name="marginGeneral">20dp</dimen>
     <dimen name="smallGeneral">10dp</dimen>
     <dimen name="logoSize">250dp</dimen>
-    <item name="alpha" format="float" type="dimen">0.75</item>
+    <item name="alpha" format="float" type="dimen">0.88</item>
+    <item name="alpha_results" format="float" type="dimen">0.75</item>
 
     <dimen name="questionNumberSize">30dp</dimen>
     <dimen name="lineHeight">1dp</dimen>

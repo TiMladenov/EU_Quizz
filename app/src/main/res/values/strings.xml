@@ -2,6 +2,7 @@
     <string name="app_name">EU Quiz</string>
     <string name="appLogoName">Welcome to EU Quiz</string>
     <string name="nameHint">Enter your name here</string>
+    <string name="enterNameToast">Enter a name</string>
     <string name="questionNumber" translatable="false">""</string>
     <string name="question" translatable="false">""</string>
     <string name="contentDesc1">Image of EU parliament</string>
@@ -44,23 +45,23 @@
 
     <string name="answerString8" translatable="false">9</string>
     <string name="answerString9" translatable="false">18</string>
-    <string name="answerString10" translatable="false">12</string>
-    <string name="answerString11" translatable="false">10</string>
+    <string name="answerString10">12</string>
+    <string name="answerString11">10</string>
 
-    <string name="answerString12" translatable="false">E-Mark</string>
-    <string name="answerString13" translatable="false">ECU</string>
-    <string name="answerString14" translatable="false">Sterling</string>
-    <string name="answerString15" translatable="false">Pound</string>
+    <string name="answerString12">E-Mark</string>
+    <string name="answerString13">ECU</string>
+    <string name="answerString14">Sterling</string>
+    <string name="answerString15">Pound</string>
 
     <string name="answerString16" translatable="false">9</string>
     <string name="answerString17" translatable="false">15</string>
     <string name="answerString18" translatable="false">12</string>
     <string name="answerString19" translatable="false">10</string>
 
-    <string name="answerString20" translatable="false">Santer</string>
-    <string name="answerString21" translatable="false">Prodi</string>
-    <string name="answerString22" translatable="false">Dehaene</string>
-    <string name="answerString23" translatable="false">Junker</string>
+    <string name="answerString20">Santer</string>
+    <string name="answerString21">Prodi</string>
+    <string name="answerString22">Dehaene</string>
+    <string name="answerString23">Junker</string>
 
     <string name="answerString24">The European Council</string>
     <string name="answerString25">The Council of Europe</string>
@@ -72,31 +73,31 @@
     <string name="answerString30">4y, 0m</string>
     <string name="answerString31">5y, 0m</string>
 
-    <string name="answerString32" translatable="false">Robert Schuman</string>
-    <string name="answerString33" translatable="false">Jean Monnet</string>
-    <string name="answerString34" translatable="false">Winston Churchill</string>
-    <string name="answerString35" translatable="false">Schuman Robert</string>
+    <string name="answerString32">Robert Schuman</string>
+    <string name="answerString33">Jean Monnet</string>
+    <string name="answerString34">Winston Churchill</string>
+    <string name="answerString35">Schuman Robert</string>
 
     <string name="answerString36">The Maastricht Treaty</string>
     <string name="answerString37">The Schengen Agreement</string>
     <string name="answerString38">The Brussels Agreement</string>
     <string name="answerString39">The Treaty of Rome</string>
 
-    <string name="strValue0">""</string>
-    <string name="strValue1">""</string>
-    <string name="strValue2">""</string>
-    <string name="strValue3">""</string>
+    <string name="strValue0" translatable="false">""</string>
+    <string name="strValue1" translatable="false">""</string>
+    <string name="strValue2" translatable="false">""</string>
+    <string name="strValue3" translatable="false">""</string>
 
     <string name="editTextHint">Enter the answer here</string>
 
     <string name="resultHeader">Results</string>
-    <string name="showResult">""</string>
+    <string name="showResult" translatable="false">""</string>
     <string name="resultText0">"Great! You know all about the EU!"</string>
     <string name="resultText1">"Congratulations! You know more than average about EU!"</string>
     <string name="resultText2">"Good Job! You cover the avarage knowledge on EU!"</string>
     <string name="resultText3">"You know just about average on EU."</string>
     <string name="resultText4">"You need to study more. Come retake the test later."</string>
-    <string name="resultPoints">""</string>
+    <string name="resultPoints" translatable="false">""</string>
 
     <string name="scoreMessage1">You have" "</string>
     <string name="scoreMessage2">" "out of 100 points. Thank you for participating," "</string>

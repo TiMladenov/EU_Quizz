@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:alpha="@dimen/alpha"
-            android:background="@color/colorForeground"
+            android:background="@drawable/view_forms"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 

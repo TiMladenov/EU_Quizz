@@ -12,13 +12,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="io.github.timladenov.euquizz.ResultActivity">
 
-    <ImageView
-        android:id="@+id/emoji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:contentDescription="@string/contentDesc4" />
-
     <LinearLayout
         android:id="@+id/buttonOptions"
         android:layout_width="match_parent"
@@ -59,7 +52,7 @@
             <ImageButton
                 android:id="@+id/visitEP"
                 style="@style/ImageButtonStyle"
-                android:layout_marginStart="@dimen/smallGeneral"
+                android:layout_gravity="center"
                 android:contentDescription="@string/contentDesc5"
                 android:src="@drawable/button_state_selector_1" />
         </LinearLayout>
@@ -75,8 +68,7 @@
             <ImageButton
                 android:id="@+id/visitECom"
                 style="@style/ImageButtonStyle"
-                android:layout_gravity="end"
-                android:layout_marginEnd="@dimen/smallGeneral"
+                android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/contentDesc6"
                 android:src="@drawable/button_state_selector_2" />
         </LinearLayout>
@@ -98,9 +90,8 @@
             <TextView
                 android:id="@+id/visitEPText"
                 style="@style/VisitTxtViews"
-                android:layout_marginStart="@dimen/smallGeneral"
                 android:text="@string/epWebsite"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
         </LinearLayout>
 
         <View style="@style/yellowSpacerVertical" />
@@ -114,9 +105,8 @@
             <TextView
                 android:id="@+id/visitEComText"
                 style="@style/VisitTxtViews"
-                android:layout_marginEnd="@dimen/smallGeneral"
                 android:text="@string/ecWebsite"
-                android:textAlignment="textEnd" />
+                android:textAlignment="center" />
         </LinearLayout>
     </LinearLayout>
 
@@ -125,30 +115,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/visitOptionsText"
+        android:fadeScrollbars="false"
         android:layout_marginBottom="@dimen/marginGeneral">
 
-        <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/textFields"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <View style="@style/yellowSpacerHorizontal" />
+            <ImageView
+                android:id="@+id/emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/contentDesc4" />
 
-            <TextView
-                android:id="@+id/showRes"
-                style="@style/ResultDisplays"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:text="@string/showResult" />
+            <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/resultWindow2"
-                style="@style/ResultDisplays"
-                android:text="@string/resultPoints" />
+                <View style="@style/yellowSpacerHorizontal"
+                    android:layout_marginBottom="@dimen/lineHeight"/>
 
-            <View style="@style/yellowSpacerHorizontal" />
+                <TextView
+                    android:id="@+id/showRes"
+                    style="@style/ResultDisplays"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="@string/showResult" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/resultWindow2"
+                    style="@style/ResultDisplays"
+                    android:text="@string/resultPoints" />
+
+                <View style="@style/yellowSpacerHorizontal"
+                    android:layout_marginTop="@dimen/lineHeight"/>
+
+            </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 
     <View

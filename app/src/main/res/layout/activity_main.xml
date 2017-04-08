@@ -25,18 +25,29 @@
 
             <View style="@style/YellowLineSpacer" />
 
-            <TextView
-                android:id="@+id/questionNumber"
-                style="@style/QuestionViews"
-                android:text="@string/questionNumber"
-                android:textSize="@dimen/middleText" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/OdpHeight"
+                android:layout_weight="@dimen/weight">
+                <TextView
+                    android:id="@+id/questionNumber"
+                    style="@style/QuestionViews"
+                    android:text="@string/questionNumber"
+                    android:textSize="@dimen/middleText" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/question"
-                style="@style/QuestionViews"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:text="@string/question"
-                android:textSize="@dimen/lowerText" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/OdpHeight"
+                android:layout_weight="@dimen/weight">
+
+                <TextView
+                    android:id="@+id/question"
+                    style="@style/QuestionViews"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/question"
+                    android:textSize="@dimen/lowerText" />
+            </LinearLayout>
 
             <View style="@style/YellowLineSpacer" />
 
@@ -47,11 +58,9 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:alpha="@dimen/alpha"
-                android:background="@color/colorForeground"
+                android:background="@drawable/view_forms"
                 android:gravity="center|start"
                 android:orientation="vertical">
-
-                <View style="@style/YellowLineSpacer" />
 
                 <RadioButton
                     android:id="@+id/answers0"
@@ -79,8 +88,6 @@
                     style="@style/RadioButtonStyle"
                     android:text="@string/answer3" />
 
-                <View style="@style/YellowLineSpacer" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -90,11 +97,9 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:alpha="@dimen/alpha"
-                android:background="@color/colorForeground"
+                android:background="@drawable/view_forms"
                 android:gravity="center|start"
                 android:orientation="vertical">
-
-                <View style="@style/YellowLineSpacer" />
 
                 <CheckBox
                     android:id="@+id/checkbox0"
@@ -122,8 +127,6 @@
                     style="@style/CheckBoxStyle"
                     android:text="@string/answer3" />
 
-                <View style="@style/YellowLineSpacer" />
-
             </LinearLayout>
 
 
@@ -134,11 +137,9 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:alpha="@dimen/alpha"
-                android:background="@color/colorForeground"
+                android:background="@drawable/view_forms"
                 android:gravity="center|start"
                 android:orientation="vertical">
-
-                <View style="@style/YellowLineSpacer" />
 
                 <TextView
                     android:id="@+id/textBox0"
@@ -173,8 +174,6 @@
                     style="@style/EditTextStyle"
                     android:hint="@string/editTextHint" />
 
-                <View style="@style/YellowLineSpacer" />
-
             </LinearLayout>
 
             <View style="@style/YellowLineSpacer" />
@@ -183,7 +182,7 @@
                 android:id="@+id/nextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/resultActivityColor"
+                android:background="@drawable/view_forms_footer"
                 android:gravity="center|bottom">
 
                 <Button

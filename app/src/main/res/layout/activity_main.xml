@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/OdpHeight"
                 android:layout_weight="@dimen/weight">
+
                 <TextView
                     android:id="@+id/questionNumber"
                     style="@style/QuestionViews"

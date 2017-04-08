@@ -25,13 +25,13 @@ import android.widget.Toast;
 import static io.github.timladenov.euquizz.R.id.editTextBox0;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
+    private final int QD_MAX_COUNT = 10;
+    private final int ANSWER_MAX_COUNT = 40;
     public String playerNamesMain;
     public int answerIndex;
     public int quizScore;
     public String[] correctAnswers;
     public String chosenAnswer;
-    private final int QD_MAX_COUNT = 10;
-    private final int ANSWER_MAX_COUNT = 40;
     private EditText editTextAnswer;
     private TextView questionNum;
     private TextView questionText;
@@ -337,8 +337,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     answers3.setChecked(false);
                     chosenAnswer = answers0.getText().toString();
                     if (questionIndex == 8) {
-                        if(notCheckedQ8) {
-                            if(chosenAnswer == correctAnswers[checkIndex]) {
+                        if (notCheckedQ8) {
+                            if (chosenAnswer == correctAnswers[checkIndex]) {
                                 CheckedAnswerQ8 = true;
                                 updateScoreQ8(CheckedAnswerQ8);
                             }
@@ -355,7 +355,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     chosenAnswer = answers1.getText().toString();
                     if (questionIndex == 8) {
                         CheckedAnswerQ8 = false;
-                        if(!(CheckedAnswerQ8 == false) || notCheckedQ8 == false) {
+                        if (!(CheckedAnswerQ8 == false) || notCheckedQ8 == false) {
                             updateScoreQ8(CheckedAnswerQ8);
                         }
                         notCheckedQ8 = true;
@@ -369,7 +369,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     answers3.setChecked(false);
                     chosenAnswer = answers2.getText().toString();
                     if (questionIndex == 8) {
-                        if(!(CheckedAnswerQ8 == false) || notCheckedQ8 == false) {
+                        if (!(CheckedAnswerQ8 == false) || notCheckedQ8 == false) {
                             updateScoreQ8(CheckedAnswerQ8);
                         }
                         notCheckedQ8 = true;
@@ -383,7 +383,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     answers2.setChecked(false);
                     chosenAnswer = answers3.getText().toString();
                     if (questionIndex == 8) {
-                        if(!(CheckedAnswerQ8 == false) || notCheckedQ8 == false) {
+                        if (!(CheckedAnswerQ8 == false) || notCheckedQ8 == false) {
                             updateScoreQ8(CheckedAnswerQ8);
                         }
                         notCheckedQ8 = true;
@@ -424,10 +424,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     //Added in v2.1. Default check method for RadioButtons;
                     boolean match = checkAnswer(chosenAnswer, correctAnswers[checkIndex]);
                     if (match || CheckedAnswerQ8) {
-                        if(match) {
+                        if (match) {
                             quizScore += 10;
                         }
-                        if(CheckedAnswerQ8) {
+                        if (CheckedAnswerQ8) {
                             quizScore += 10;
                         }
                     }
@@ -518,10 +518,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     * */
 
     public void updateScoreQ8(boolean canAdd) {
-        if(canAdd == true) {
+        if (canAdd == true) {
             quizScore += 10;
-        }
-        else if (canAdd == false) {
+        } else if (canAdd == false) {
             quizScore -= 10;
         }
     }

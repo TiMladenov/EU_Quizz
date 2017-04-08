@@ -62,7 +62,7 @@
     <string name="resultText3" translatable="true">Имате знания почти на средно ниво за ЕС.</string>
     <string name="resultText4" translatable="true">Трябва да учите повече. Явете се отново на теста.</string>
     <string name="scoreMessage1" translatable="true">"Имате "</string>
-    <string name="scoreMessage2" translatable="true">" от 100 точки. Благорим Ви за участието, "</string>
+    <string name="scoreMessage2" translatable="true">" от 100 точки. Благодарим Ви за участието, "</string>
     <string name="showResult" translatable="false"></string>
     <string name="toastMsg" translatable="true">" от 10 въпроси"</string>
 </resources>

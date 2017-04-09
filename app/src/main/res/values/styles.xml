@@ -50,10 +50,11 @@
 
     <style name="QuestionViews" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
         <item name="android:alpha">@dimen/alpha</item>
         <item name="android:background">@drawable/view_forms</item>
         <item name="android:fontFamily">sans-serif</item>
+        <item name="android:paddingStart">@dimen/smallPadding</item>
+        <item name="android:paddingEnd">@dimen/smallPadding</item>
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/primaryTxtColor</item>

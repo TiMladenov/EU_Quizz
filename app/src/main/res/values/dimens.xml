@@ -2,7 +2,8 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-
+    <dimen name="questionHeight">50dp</dimen>
+    <dimen name="questionTxtHeight">150dp</dimen>
     <dimen name="capitalText">40sp</dimen>
     <dimen name="middleText">30sp</dimen>
     <dimen name="lowerText">20sp</dimen>
@@ -12,12 +13,10 @@
     <dimen name="logoSize">250dp</dimen>
     <item name="alpha" format="float" type="dimen">0.88</item>
     <item name="alpha_results" format="float" type="dimen">0.75</item>
-
     <dimen name="questionNumberSize">30dp</dimen>
     <dimen name="lineHeight">1dp</dimen>
     <dimen name="OdpHeight">0dp</dimen>
     <item name="weight" format="float" type="dimen">1</item>
-
     <dimen name="resultTxtBoxSize">150dp</dimen>
     <dimen name="imageButtonSize">75dp</dimen>
 </resources>

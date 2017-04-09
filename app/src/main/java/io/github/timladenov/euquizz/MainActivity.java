@@ -19,6 +19,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private TextView answers1text;
     private TextView answers2text;
     private TextView answers3text;
+    private ScrollView mainScrollView;
     private String question;
     private boolean notChecked;
     private boolean CheckedAnswerQ8;
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     *
     *  @param QD_MAX_COUNT      is the maximum array size for question text and drawables;
     *  @param ANSWER_MAX_COUNT  is the maximum array size for answer text;
+    *  @param mainScrollView    is used to reset ScrollView to top position on each Next button click;
     *  @param questionArray     is an array that keeps all questions. Data is received via "string" values;
     *  @param answersArray      is an array that keeps all answers. Data is received via "string" values;
     *  @param correctAnswers    is an array that keeps all correct answers and checks each selected answer;
@@ -123,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         * Sets up the fields for RadioButton questions;
         * */
 
+        mainScrollView = (ScrollView) findViewById(R.id.scrollView);
         questionNum = (TextView) findViewById(R.id.questionNumber);
         questionText = (TextView) findViewById(R.id.question);
         answers0 = (RadioButton) findViewById(R.id.answers0);
@@ -504,9 +508,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     startActivity(toResult);
                     finish();
                 }
+                mainScrollView.fullScroll(ScrollView.FOCUS_UP);
                 break;
         }
-
     }
 
     /*

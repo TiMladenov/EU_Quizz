@@ -3,7 +3,7 @@
 *           This application has been created for final Project 3 on Udacity's Google sponsored "Android For Beginners" course;
 *           02 April 2017
 *
-* @version  v2.2 final
+* @version  v2.3 final
 * @since    v1.0a
 * */
 
@@ -26,6 +26,18 @@ import android.widget.Toast;
 import static io.github.timladenov.euquizz.R.id.editTextBox0;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
+    private static final String STATE_PLAYER_NAMES = "playerNamesMain";
+    private static final String STATE_ANSWER_INDEX = "answerIndex";
+    private static final String STATE_QUIZ_SCORE = "quizScore";
+    private static final String STATE_CHOSEN_ANSWER = "chosenAnswer";
+    private static final String STATE_QUESTION_NUMBER = "questionNumber";
+    private static final String STATE_QUESTION_INDEX = "questionIndex";
+    private static final String STATE_CHECK_INDEX = "checkIndex";
+    private static final String STATE_IMAGE_INDEX = "imageIndex";
+    private static final String STATE_CORRECT_ANSWER = "correctAns";
+    private static final String STATE_NOT_CHECKED = "notChecked";
+    private static final String STATE_NOT_CHECKED_Q8 = "notCheckedQ8";
+    private static final String STATE_CHECKED_ANSWER_Q8 = "CheckedAnswerQ8";
     private final int QD_MAX_COUNT = 10;
     private final int ANSWER_MAX_COUNT = 40;
     public String playerNamesMain;
@@ -217,18 +229,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putString("playerNamesMain", playerNamesMain);
-        savedInstanceState.putInt("answerIndex", answerIndex);
-        savedInstanceState.putInt("quizScore", quizScore);
-        savedInstanceState.putString("chosenAnswer", chosenAnswer);
-        savedInstanceState.putInt("questionNumber", questionNumber);
-        savedInstanceState.putInt("questionIndex", questionIndex);
-        savedInstanceState.putInt("checkIndex", checkIndex);
-        savedInstanceState.putInt("imageIndex", imageIndex);
-        savedInstanceState.putString("correctAns", correctAnswers[checkIndex]);
-        savedInstanceState.putBoolean("notChecked", notChecked);
-        savedInstanceState.putBoolean("notCheckedQ8", notCheckedQ8);
-        savedInstanceState.putBoolean("CheckedAnswerQ8", CheckedAnswerQ8);
+        savedInstanceState.putString(STATE_PLAYER_NAMES, playerNamesMain);
+        savedInstanceState.putInt(STATE_ANSWER_INDEX, answerIndex);
+        savedInstanceState.putInt(STATE_QUIZ_SCORE, quizScore);
+        savedInstanceState.putString(STATE_CHOSEN_ANSWER, chosenAnswer);
+        savedInstanceState.putInt(STATE_QUESTION_NUMBER, questionNumber);
+        savedInstanceState.putInt(STATE_QUESTION_INDEX, questionIndex);
+        savedInstanceState.putInt(STATE_CHECK_INDEX, checkIndex);
+        savedInstanceState.putInt(STATE_IMAGE_INDEX, imageIndex);
+        savedInstanceState.putString(STATE_CORRECT_ANSWER, correctAnswers[checkIndex]);
+        savedInstanceState.putBoolean(STATE_NOT_CHECKED, notChecked);
+        savedInstanceState.putBoolean(STATE_NOT_CHECKED_Q8, notCheckedQ8);
+        savedInstanceState.putBoolean(STATE_CHECKED_ANSWER_Q8, CheckedAnswerQ8);
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -243,18 +255,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        playerNamesMain = savedInstanceState.getString("playerNamesMain");
-        answerIndex = savedInstanceState.getInt("answerIndex");
-        quizScore = savedInstanceState.getInt("quizScore");
-        chosenAnswer = savedInstanceState.getString("chosenAnswer");
-        questionNumber = savedInstanceState.getInt("questionNumber");
-        questionIndex = savedInstanceState.getInt("questionIndex");
-        checkIndex = savedInstanceState.getInt("checkIndex");
-        imageIndex = savedInstanceState.getInt("imageIndex");
-        correctAnswers[checkIndex] = savedInstanceState.getString("correctAns");
-        notChecked = savedInstanceState.getBoolean("notChecked");
-        notCheckedQ8 = savedInstanceState.getBoolean("notCheckedQ8");
-        CheckedAnswerQ8 = savedInstanceState.getBoolean("CheckedAnswerQ8");
+        playerNamesMain = savedInstanceState.getString(STATE_PLAYER_NAMES);
+        answerIndex = savedInstanceState.getInt(STATE_ANSWER_INDEX);
+        quizScore = savedInstanceState.getInt(STATE_QUIZ_SCORE);
+        chosenAnswer = savedInstanceState.getString(STATE_CHOSEN_ANSWER);
+        questionNumber = savedInstanceState.getInt(STATE_QUESTION_NUMBER);
+        questionIndex = savedInstanceState.getInt(STATE_QUESTION_INDEX);
+        checkIndex = savedInstanceState.getInt(STATE_CHECK_INDEX);
+        imageIndex = savedInstanceState.getInt(STATE_IMAGE_INDEX);
+        correctAnswers[checkIndex] = savedInstanceState.getString(STATE_CORRECT_ANSWER);
+        notChecked = savedInstanceState.getBoolean(STATE_NOT_CHECKED);
+        notCheckedQ8 = savedInstanceState.getBoolean(STATE_NOT_CHECKED_Q8);
+        CheckedAnswerQ8 = savedInstanceState.getBoolean(STATE_CHECKED_ANSWER_Q8);
 
         if (questionNumber - 1 > 8 && questionNumber - 1 < 10) {
             findViewById(R.id.answersField).setVisibility(View.GONE);
@@ -297,6 +309,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             answers2.setText(answersArray[answerIndex - 2]);
             answers3.setText(answersArray[answerIndex - 1]);
             backGround.setImageResource(drawableArray[imageIndex - 1]);
+        }
+
+        if(questionNumber - 2 == QD_MAX_COUNT - 2) {
+            answers0check.setText(answersArray[answerIndex - 4]);
+            answers1check.setText(answersArray[answerIndex - 3]);
+            answers2check.setText(answersArray[answerIndex - 2]);
+            answers3check.setText(answersArray[answerIndex - 1]);
         }
 
         if (questionNumber - 1 == QD_MAX_COUNT) {

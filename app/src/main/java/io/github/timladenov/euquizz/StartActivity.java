@@ -3,7 +3,7 @@
 *           This application has been created for final Project 3 on Udacity's Google sponsored "Android For Beginners" course;
 *           02 April 2017
 *
-* @version  v2.2 final
+* @version  v2.3 final
 * @since    v1.0a
 * */
 
@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 public class StartActivity extends AppCompatActivity {
 
+    private static final String STATE_SLEEP_TIME = "sleePTime";
+    private static final String STATE_PLAYER_NAMES = "playerNames";
     private String playerNames;
     private int sleePTime = 3500;
 
@@ -101,8 +103,8 @@ public class StartActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putInt("sleePTime", 0);
-        savedInstanceState.putString("playerNames", playerNames);
+        savedInstanceState.putInt(STATE_SLEEP_TIME, 0);
+        savedInstanceState.putString(STATE_PLAYER_NAMES, playerNames);
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -111,7 +113,7 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        sleePTime = savedInstanceState.getInt("sleepTime");
-        playerNames = savedInstanceState.getString("playerNames");
+        sleePTime = savedInstanceState.getInt(STATE_SLEEP_TIME);
+        playerNames = savedInstanceState.getString(STATE_PLAYER_NAMES);
     }
 }

@@ -7,7 +7,6 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
     <style name="YellowLineSpacer" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/lineHeight</item>
@@ -15,7 +14,6 @@
         <item name="android:layout_marginBottom">@dimen/lineHeight</item>
         <item name="android:background">@color/euYellow</item>
     </style>
-
     <style name="ScrollView" parent="@android:style/Widget.ScrollView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -26,7 +24,6 @@
         <item name="android:fadeScrollbars">false</item>
         <item name="android:fillViewport">true</item>
     </style>
-
     <style name="ViewsStart" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -36,7 +33,6 @@
         <item name="android:textColor">@color/resultActivityColor</item>
         <item name="android:textStyle">normal</item>
     </style>
-
     <style name="ViewsStart_2" parent="@android:style/Widget.EditText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -47,7 +43,6 @@
         <item name="android:textColorHint">@color/resultActivityColor</item>
         <item name="android:textStyle">normal</item>
     </style>
-
     <style name="QuestionViews" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:alpha">@dimen/alpha</item>
@@ -60,7 +55,6 @@
         <item name="android:textColor">@color/primaryTxtColor</item>
         <item name="android:textStyle">normal</item>
     </style>
-
     <style name="RadioButtonStyle" parent="@android:style/Widget.CompoundButton.RadioButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -71,7 +65,6 @@
         <item name="android:textSize">@dimen/lowerText</item>
         <item name="android:textStyle">normal</item>
     </style>
-
     <style name="CheckBoxStyle" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -82,7 +75,6 @@
         <item name="android:textSize">@dimen/lowerText</item>
         <item name="android:textStyle">normal</item>
     </style>
-
     <style name="TextViewStyle" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -94,7 +86,6 @@
         <item name="android:textSize">@dimen/lowerText</item>
         <item name="android:textStyle">normal</item>
     </style>
-
     <style name="EditTextStyle" parent="@android:style/Widget.EditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -108,7 +99,6 @@
         <item name="android:text">""</item>
         <item name="android:textStyle">normal</item>
     </style>
-
     <style name="ButtonsStyle" parent="@android:style/Widget.Button">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAlignment">center</item>
@@ -117,7 +107,6 @@
         <item name="android:textStyle">normal</item>
         <item name="android:layout_marginTop">@dimen/smallGeneral</item>
     </style>
-
     <style name="ResultDisplays" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/resultTxtBoxSize</item>
@@ -132,7 +121,6 @@
         <item name="android:textSize">@dimen/lowerText</item>
         <item name="android:textStyle">normal</item>
     </style>
-
     <style name="VisitTxtViews" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -141,18 +129,15 @@
         <item name="android:textSize">@dimen/lowerText</item>
         <item name="android:textStyle">normal</item>
     </style>
-
     <style name="ImageButtonStyle" parent="@android:style/Widget.ImageButton">
         <item name="android:layout_width">@dimen/imageButtonSize</item>
         <item name="android:layout_height">@dimen/imageButtonSize</item>
     </style>
-
     <style name="yellowSpacerVertical" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">@dimen/lineHeight</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/euYellow</item>
     </style>
-
     <style name="yellowSpacerHorizontal" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/lineHeight</item>

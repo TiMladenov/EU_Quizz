@@ -414,27 +414,31 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     }
                 }
             case R.id.checkbox0:
-                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked())) && notChecked) {
-                    quizScore += 10;
-                    notChecked = false;
+                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked()))) {
+                    chosenAnswer = answers1check.getText().toString();
+                } else if(answers0check.isChecked() || !(answers1check.isChecked()) || !(answers2check.isChecked()) || !(answers3check.isChecked())) {
+                    chosenAnswer = "";
                 }
                 break;
             case R.id.checkbox1:
-                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked())) && notChecked) {
-                    quizScore += 10;
-                    notChecked = false;
+                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked()))) {
+                    chosenAnswer = answers1check.getText().toString();
+                } else if(!(answers0check.isChecked()) || answers1check.isChecked() || !(answers2check.isChecked()) || !(answers3check.isChecked())) {
+                    chosenAnswer = "";
                 }
                 break;
             case R.id.checkbox2:
-                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked())) && notChecked) {
-                    quizScore += 10;
-                    notChecked = false;
+                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked()))) {
+                    chosenAnswer = answers1check.getText().toString();
+                } else if(!(answers0check.isChecked()) || !(answers1check.isChecked()) || answers2check.isChecked() || !(answers3check.isChecked())) {
+                    chosenAnswer = "";
                 }
                 break;
             case R.id.checkbox3:
-                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked())) && notChecked) {
-                    quizScore += 10;
-                    notChecked = false;
+                if (((answers0check.isChecked() && answers2check.isChecked() && answers3check.isChecked()) && !(answers1check.isChecked()))) {
+                    chosenAnswer = answers1check.getText().toString();
+                } else if(!(answers0check.isChecked()) || !(answers1check.isChecked()) || !(answers2check.isChecked()) || answers3check.isChecked()) {
+                    chosenAnswer = "";
                 }
                 break;
             case R.id.editTextBox0:
@@ -509,6 +513,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                         answerIndex++;
                         answers3text.setText(answersArray[answerIndex]);
                         answerIndex++;
+
+                        if (!(chosenAnswer == null)) {
+                            if(checkAnswer(chosenAnswer, correctAnswers[checkIndex - 1])) {
+                                quizScore += 10;
+                            }
+                        }
                     }
                 } else if (questionNumber > 9) {
                     /*

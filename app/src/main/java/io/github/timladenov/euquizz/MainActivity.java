@@ -291,15 +291,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private void setScreen() {
 
-        questionNum = (TextView) findViewById(R.id.questionNumber);
-        questionText = (TextView) findViewById(R.id.question);
-        answers0 = (RadioButton) findViewById(R.id.answers0);
-        answers1 = (RadioButton) findViewById(R.id.answers1);
-        answers2 = (RadioButton) findViewById(R.id.answers2);
-        answers3 = (RadioButton) findViewById(R.id.answers3);
-        backGround = (ImageView) findViewById(R.id.quesitonBackground);
-        nextView = (Button) findViewById(R.id.nextView);
-
         if (questionNumber > 2) {
             String question = getResources().getString(R.string.questionTxt);
             question += Integer.toString(questionNumber - 1);

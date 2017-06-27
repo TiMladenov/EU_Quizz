@@ -19,10 +19,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ResultActivity extends AppCompatActivity {
     private static final String EUROPARL_WEBSITE = "http://www.europarl.europa.eu/portal";
     private static final String EUROCOM_WEBSITE = "https://ec.europa.eu/";
+    private boolean scoreNotDisplayed;
     public String playerName;
     public int playerScore;
     private TextView resultView;
@@ -56,6 +58,12 @@ public class ResultActivity extends AppCompatActivity {
         playerName = getIntent().getExtras().getString("playerNamesMain");
         playerScore = getIntent().getExtras().getInt("quizScore");
 
+        if(savedInstanceState != null) {
+            scoreNotDisplayed = savedInstanceState.getBoolean("scoreNotDisplayed");
+        } else {
+            scoreNotDisplayed = true;
+        }
+
         resultText = new String[5];
         setResultText();
 
@@ -79,6 +87,20 @@ public class ResultActivity extends AppCompatActivity {
             setEmoji.setImageResource(R.drawable.emojis_sad_face);
         }
 
+        if(scoreNotDisplayed) {
+            if (playerScore >= 80 && playerScore <= 100) {
+                Toast.makeText(this, getResources().getString(R.string.result_toast_excellent) + playerScore + getResources().getString(R.string.result_toast_points), Toast.LENGTH_LONG).show();
+            } else if (playerScore >= 60 && playerScore < 80) {
+                Toast.makeText(this, getResources().getString(R.string.result_toast_very_good) + playerScore + getResources().getString(R.string.result_toast_points), Toast.LENGTH_LONG).show();
+            } else if (playerScore >= 50 && playerScore < 60) {
+                Toast.makeText(this, getResources().getString(R.string.result_toast_good) + playerScore + getResources().getString(R.string.result_toast_points), Toast.LENGTH_LONG).show();
+            } else if (playerScore >= 40 && playerScore < 50) {
+                Toast.makeText(this, getResources().getString(R.string.result_toast_average) + playerScore + getResources().getString(R.string.result_toast_points), Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, getResources().getString(R.string.result_toast_poor) + playerScore + getResources().getString(R.string.result_toast_points), Toast.LENGTH_LONG).show();
+            }
+        }
+
         resultView = (TextView) findViewById(R.id.resultWindow2);
         String textResult = getResources().getString(R.string.scoreMessage1) + Integer.toString(playerScore) + getResources().getString(R.string.scoreMessage2) + playerName + ".";
         resultView.setText(textResult);
@@ -89,6 +111,12 @@ public class ResultActivity extends AppCompatActivity {
         visitECom = (ImageButton) findViewById(R.id.visitECom);
 
         finalAction();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("scoreNotDisplayed", false);
+        super.onSaveInstanceState(outState);
     }
 
     /*

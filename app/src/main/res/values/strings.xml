@@ -99,6 +99,13 @@
     <string name="resultText4">"You need to study more. Come retake the test later."</string>
     <string name="resultPoints" translatable="false">""</string>
 
+    <string name="result_toast_excellent">Great work! You scored\t</string>
+    <string name="result_toast_very_good">Nice! You scored\t</string>
+    <string name="result_toast_good">You scored\t</string>
+    <string name="result_toast_average">Not too bad, you scored\t</string>
+    <string name="result_toast_poor">Oh no! You scored just\t</string>
+    <string name="result_toast_points">\tpoints</string>
+
     <string name="scoreMessage1">You have" "</string>
     <string name="scoreMessage2">" "out of 100 points. Thank you for participating," "</string>
 
